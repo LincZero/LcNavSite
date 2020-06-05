@@ -17,21 +17,21 @@ export default {
 
 <style lang="scss">
 #Footer {
-  $hei: 25px;
-  $c_dark: #333333;
-  $c_light: aliceblue;
-  height: $hei;
-  background: $c_dark;
+  // $footer-hei: 25px;
+  // $color_dark: #333333;
+  // $color_light: aliceblue;
+  height: $footer-hei;
+  background: $color_dark;
   width: 100%;
   position: fixed;
   bottom: 0;
   div {
-    height: $hei;
+    height: $footer-hei;
   }
   .float {
     margin-left: 20px;
     p {
-      color: $c_light;
+      color: $color_light;
       float: left;
       margin: 0 50px 0 0;
       padding: 0;

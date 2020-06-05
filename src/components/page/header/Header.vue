@@ -1,6 +1,14 @@
 <template>
   <div id="header">
-    <div style="float:right;margin-right: 20px;">
+    <div class="left">
+      <LeftHandle></LeftHandle>
+    </div>
+    <div class="mid">
+      <div style="float:right">
+        <HeaderSearch></HeaderSearch>
+      </div>
+    </div>
+    <div class="right">
       <div>
         <HeaderSwitch></HeaderSwitch>
       </div>
@@ -28,9 +36,6 @@
         <i class="el-icon-warning-outline"></i>
       </div>
     </div>
-    <div style="margin:0 auto;width:250px">
-      <HeaderSearch></HeaderSearch>
-    </div>
   </div>
 </template>
 
@@ -38,6 +43,7 @@
 export default {
   name: "Header",
   components: {
+    LeftHandle: () => import("@/components/page/left/LeftHandle.vue"),
     HeaderSearch: () => import("./HeaderSearch"),
     HeaderSwitch: () => import("./HeaderSwitch")
   }
@@ -45,51 +51,59 @@ export default {
 </script>
 
 <style lang="scss">
+// $header-hei: 40px;
 #header {
-  $hei: 40px;
   $font_size: 18px;
   $font_family: "Times New Roman", Georgia, Serif;
-  height: $hei;
+  height: $header-hei;
   width: 100%;
-  > div {
-    height: $hei;
-    div {
-      height: $hei;
-      float: left;
-      margin: {
-        left: 12px;
-      }
-    }
-    a,
-    p {
-      line-height: $hei;
-      font: {
-        size: $font_size;
-        family: $font_family;
-        // weight: bold;
-      }
-      text-decoration: none;
-      margin: 0;
-      padding: 0;
-    }
-    button {
-      height: $hei;
-    }
-    .router-link-active {
-      color: red;
-    }
+  display: flex;
+  .left {
+    width: 100px;
   }
-  p {
+  .right {
+    float: right;
+    margin-right: 20px;
+  }
+  .mid {
+    flex: 1;
+    margin: 0 auto;
+  }
+  div {
+    height: $header-hei;
     float: left;
-    span {
-      line-height: 1;
-      font-size: 14px;
-      display: inline-block;
-      cursor: pointer;
-      font-weight: 500;
-      text-align: center;
-      line-height: $hei;
+    margin: {
+      left: 12px;
     }
   }
+  a,
+  p {
+    line-height: $header-hei;
+    font: {
+      size: $font_size;
+      family: $font_family;
+    }
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+  }
+  button {
+    height: $header-hei;
+  }
+  .router-link-active {
+    color: red;
+  }
+  // p {
+  //   float: left;
+  //   span {
+  //     line-height: 1;
+  //     font-size: 14px;
+  //     display: inline-block;
+  //     cursor: pointer;
+  //     font-weight: 500;
+  //     text-align: center;
+  //     line-height: $header-hei;
+  //   }
+  // }
 }
 </style>

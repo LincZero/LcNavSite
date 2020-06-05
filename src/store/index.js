@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    easy: 0, // 简易模式 - 界面
+    easy: false, // 简易模式 - 界面
     abroad: true, // 国外模式 - 内容
     safe: false, // 内鬼模式 - 导航项
     // disable: true, // 是否显示禁用项

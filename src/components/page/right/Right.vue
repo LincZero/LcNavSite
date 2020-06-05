@@ -19,8 +19,9 @@
 </template>
 
 <style lang="scss">
+// $header-hei
 #right {
-  margin-top: -40px;
+  // margin-top: -$header-hei;
   height: 100%;
   float: right;
   box-sizing: border-box;

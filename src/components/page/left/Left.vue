@@ -1,6 +1,5 @@
 <template>
   <div id="navmenu">
-    <LeftHandle></LeftHandle>
     <el-menu
       default-active="1-4-1"
       class="el-menu-vertical-demo"
@@ -49,9 +48,6 @@ export default {
       isCollapse: true
     };
   },
-  components: {
-    LeftHandle: () => import("@/components/page/left/LeftHandle.vue")
-  },
   methods: {
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
@@ -64,19 +60,18 @@ export default {
 </script>
 
 <style lang="scss">
+// $left-wid;
+// $header-hei
 .el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 180px;
+  // width: calc($left-wid - 15px);
   min-height: 400px;
 }
 #navmenu {
-  margin-top: -40px;
-  width: 195px;
+  // margin-top: -$header-hei;
+  // width: $left-wid;
   height: 100%;
-  overflow: auto;
-  // position: fixed;
-  // left: 0;
-  // top: 0;
-  // z-index: 999;
+  overflow-x: hidden;
+  overflow-y: auto;
   float: left;
   el-radio-group {
     float: left;
