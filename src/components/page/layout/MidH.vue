@@ -5,5 +5,7 @@
 </template>
 
 <style lang="scss">
-// $header-hei
+.midh {
+  overflow-y: auto;
+}
 </style>

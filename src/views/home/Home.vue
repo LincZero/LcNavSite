@@ -3,7 +3,9 @@
     <transition>
       <div>
         <Search></Search>
-        <button @click="more">点击高级</button>
+        <div class="advanced">
+          <a @click="more">进入高级模式</a>
+        </div>
       </div>
     </transition>
   </div>
@@ -24,12 +26,12 @@ export default {
 
 <style lang="scss">
 .home {
-  // height: 100%;
-  // display: flex;
-  Serach {
-    // flex: 1;
+  margin-top: 160px;
+  .advanced {
+    margin-top: 30px;
   }
 }
+
 .v-enter,
 .v-leave-to {
   // opactity: 0;

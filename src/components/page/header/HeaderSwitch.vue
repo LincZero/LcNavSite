@@ -1,9 +1,11 @@
 <template>
   <div>
-    <p>
-      <span v-show="!$store.state.abroad">大陆</span>
-      <span v-show="$store.state.abroad" style="color:#e482a3">国外</span>
-    </p>
+    <div style="float:left">
+      <p>
+        <span v-show="!$store.state.abroad">大陆</span>
+        <span v-show="$store.state.abroad" style="color:#e482a3">国外</span>
+      </p>
+    </div>
     <el-switch
       style="margin-right:20px;margin-left:6px;float:left"
       v-model="$store.state.abroad"
@@ -23,7 +25,7 @@ export default {
   },
   methods: {
     fn_cg_abroad(abroad) {
-      this.$store.commit('fm_cg_abroad', abroad)
+      this.$store.commit("fm_cg_abroad", abroad);
     }
   }
 };

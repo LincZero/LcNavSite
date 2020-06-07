@@ -5,7 +5,7 @@
       class="el-menu-vertical-demo"
       @open="handleOpen"
       @close="handleClose"
-      :collapse="$store.state.left"
+      :collapse="!$store.state.left"
     >
       <el-submenu index="1">
         <template slot="title">
@@ -43,17 +43,12 @@
 
 <script>
 export default {
-  data() {
-    return {
-      isCollapse: true
-    };
-  },
   methods: {
     handleOpen(key, keyPath) {
-      console.log(key, keyPath);
+      this.$store.commit("fm_cg_left");
     },
     handleClose(key, keyPath) {
-      console.log(key, keyPath);
+      this.$store.commit("fm_cg_left");
     }
   }
 };
@@ -73,8 +68,6 @@ export default {
   overflow-x: hidden;
   overflow-y: auto;
   float: left;
-  el-radio-group {
-    float: left;
-  }
+  box-shadow: 1px 0 1px $color-shadow;
 }
 </style>

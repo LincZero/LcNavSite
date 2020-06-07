@@ -1,10 +1,10 @@
 <template>
   <div id="lefthandle">
     <el-button
+      style="width:65px"
       :icon="icon"
       @click="fn_cg_left"
-      size="small"
-      circle>
+      >
     </el-button>
   </div>
 </template>
@@ -17,7 +17,7 @@ export default {
   },
   computed: {
     icon() {
-      return this.$store.state.left?"el-icon-d-arrow-right":"el-icon-d-arrow-left"
+      return this.$store.state.left?"el-icon-d-arrow-left":"el-icon-d-arrow-right"
     }
   },
   methods: {
@@ -29,6 +29,7 @@ export default {
 </script>
 
 <style lang="scss">
-// #lefthandle {
-// }
+#lefthandle {
+  box-shadow: 1px 0 1px $color-shadow;
+}
 </style>
