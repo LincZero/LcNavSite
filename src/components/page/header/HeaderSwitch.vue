@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="headerswitch">
     <div style="float:left">
       <p>
         <span v-show="!$store.state.abroad">大陆</span>

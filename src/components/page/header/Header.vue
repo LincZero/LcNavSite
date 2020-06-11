@@ -5,7 +5,7 @@
     </div>
     <div class="mid">
       <div style="float:right">
-        <HeaderSearch></HeaderSearch>
+        <SearchAsync></SearchAsync>
       </div>
     </div>
     <div class="right">
@@ -39,7 +39,8 @@ export default {
   name: "Header",
   components: {
     LeftHandle: () => import("@/components/page/left/LeftHandle.vue"),
-    HeaderSearch: () => import("./HeaderSearch"),
+    // HeaderSearch: () => import("@/components/search/easy/HeaderSearch"),
+    SearchAsync: () => import("@/components/search/autocomplete/SearchAsync.vue"),
     HeaderSwitch: () => import("./HeaderSwitch")
   }
 };
@@ -69,26 +70,25 @@ export default {
     div {
       height: $header-hei;
       float: left;
-      margin: {
-        left: 12px;
-      }
+      margin-left: 12px;
     }
     a,
     p {
       line-height: $header-hei;
-      font: {
-        size: $font_size;
-        family: $font_family;
-      }
-      text-decoration: none;
+      font-size: $font_size;
+      font-family: $font_family;
       margin: 0;
       padding: 0;
+    }
+    a {
+      color: $color-pink;
+      text-decoration: none;
     }
     button {
       height: $header-hei;
     }
     .router-link-active {
-      color: red;
+      color: $color-el-blue;
     }
   }
 }

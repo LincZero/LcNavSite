@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import { getHomeMultidata } from "@/network/home.js";
 export default {
   name: "Home",
   components: {
@@ -26,7 +25,6 @@ export default {
     Left: () => import("@/components/page/left/Left.vue"),
     MidH: () => import("@/components/page/layout/MidH.vue"),
     Right: () => import("@/components/page/right/Right.vue")
-    // Live2d: () => import("@/components/live2d/Live2d.vue")
   },
   computed: {
     easy() {
@@ -38,11 +36,6 @@ export default {
       this.$router.replace("/site");
     }
   },
-  // created() {
-  // getHomeMultidata().then(res => {
-  //   this.banners = res.data.data.banner.list // 测试用...................................................
-  // })
-  // }
   mounted() {
     setTimeout(() => {
       window.L2Dwidget.init({

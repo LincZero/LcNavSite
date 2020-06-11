@@ -13,8 +13,14 @@
 
 <script>
 export default {
+  name: "Home",
+  data() {
+    return {
+      textData: null
+    };
+  },
   components: {
-    Search: () => import("@/views/home/search/Search.vue")
+    Search: () => import("@/components/search/easy/Search.vue")
   },
   methods: {
     more() {
@@ -29,6 +35,9 @@ export default {
   margin-top: 160px;
   .advanced {
     margin-top: 30px;
+  }
+  a {
+    color: $color-pink;
   }
 }
 

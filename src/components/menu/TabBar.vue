@@ -7,8 +7,6 @@
   </div>
 </template>
 
-
-
 <script>
 export default {
   data() {
@@ -18,7 +16,7 @@ export default {
   },
   methods: {
     handleClick(tab, event) {
-      console.log(tab);
+      // console.log(tab);
     }
   }
 };

@@ -7,16 +7,16 @@
       <el-button icon="el-icon-user-solid" circle />
     </div>
     <div>
-      <el-button icon="el-icon-s-home" circle />
-    </div>
-    <div>
-      <el-button icon="el-icon-star-on" circle />
+      <el-button icon="el-icon-s-promotion" circle />
     </div>
     <div>
       <el-button icon="el-icon-s-tools" circle />
     </div>
     <div>
-      <el-button icon="el-icon-s-promotion" circle />
+      <el-button icon="el-icon-s-home" circle />
+    </div>
+    <div>
+      <el-button icon="el-icon-star-on" circle />
     </div>
     <div>
       <el-button icon="el-icon-share" circle />

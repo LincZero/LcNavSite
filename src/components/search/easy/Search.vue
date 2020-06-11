@@ -1,6 +1,4 @@
 <template>
-  <!-------------------------------------------------搜索部分--------------------------------------------------------->
-
   <div class="searchInput">
     <div class="left">
       <select>
@@ -26,6 +24,10 @@
 
 <script>
 export default {
+  name:"Search",
+  components: {
+    // SearchAsync: () => import("@/components/search/autocomplete/SearchAsync.vue")
+  },
   computed: {
     placeholder() {
       return this.$store.state.abroad ? "谷歌搜索" : "百度搜索";

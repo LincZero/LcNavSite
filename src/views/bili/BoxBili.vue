@@ -40,12 +40,14 @@ export default {
 
 <style lang="scss">
 .box_bili {
+  $radius: 6px;
+  border-radius: $radius;
+  overflow: hidden;
   height: 190px;
   width: 206px;
   background-color: #ffffff;
   float: left;
   margin: 5px;
-  overflow: hidden;
   .img {
     position: relative;
     height: 116px;

@@ -10,7 +10,8 @@ export default new Vuex.Store({
     safe: false, // 内鬼模式 - 导航项
     // disable: true, // 是否显示禁用项
     left: false, // 左侧栏模式 - 界面
-    mode: '' // 路由模式 - 状态
+    mode: '', // 路由模式 - 状态
+    siteDb: {} // 网站集数据，异步得来
   },
   mutations: {
     fm_cg_abroad(state, abroad) {
@@ -18,6 +19,9 @@ export default new Vuex.Store({
     },
     fm_cg_left(state) {
       state.left = !state.left
+    },
+    fm_cg_siteDb(state, data) {
+      state.siteDb = data
     }
   },
   actions: {},

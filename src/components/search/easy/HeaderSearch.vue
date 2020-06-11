@@ -6,7 +6,8 @@
       v-model="input"
       prefix-icon="el-icon-search"
       size="small"
-      clearable>
+      clearable
+    >
     </el-input>
   </div>
 </template>
@@ -24,5 +25,3 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-</style>
