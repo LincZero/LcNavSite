@@ -4,7 +4,7 @@
       <LeftHandle></LeftHandle>
     </div>
     <div class="mid">
-      <div style="float:right">
+      <div style="float:right;margin:0 10px">
         <SearchAsync></SearchAsync>
       </div>
     </div>
@@ -12,24 +12,24 @@
       <div>
         <HeaderSwitch></HeaderSwitch>
       </div>
-      <div>
+      <li>
         <router-link to="/home" replace>简易</router-link>
-      </div>
-      <div>
+      </li>
+      <li>
         <router-link to="/engine" replace>高级引擎</router-link>
-      </div>
-      <div>
+      </li>
+      <li>
         <router-link to="/site" replace>网站模式</router-link>
-      </div>
-      <div>
+      </li>
+      <li>
         <router-link to="/bili" replace>B站模式</router-link>
-      </div>
-      <div>
+      </li>
+      <li>
         <router-link to="/api" replace>手册模式</router-link>
-      </div>
-      <div>
+      </li>
+      <li>
         <router-link to="/about" replace>网站指南</router-link>
-      </div>
+      </li>
     </div>
   </div>
 </template>
@@ -40,7 +40,8 @@ export default {
   components: {
     LeftHandle: () => import("@/components/page/left/LeftHandle.vue"),
     // HeaderSearch: () => import("@/components/search/easy/HeaderSearch"),
-    SearchAsync: () => import("@/components/search/autocomplete/SearchAsync.vue"),
+    SearchAsync: () =>
+      import("@/components/search/autocomplete/SearchAsync.vue"),
     HeaderSwitch: () => import("./HeaderSwitch")
   }
 };
@@ -67,22 +68,23 @@ export default {
   }
   .right {
     margin-right: 20px;
-    div {
-      height: $header-hei;
+    div,
+    ul,
+    li {
       float: left;
+      height: $header-hei;
+    }
+    li {
       margin-left: 12px;
     }
     a,
     p {
       line-height: $header-hei;
-      font-size: $font_size;
       font-family: $font_family;
-      margin: 0;
-      padding: 0;
+      font-size: $font_size;
     }
     a {
       color: $color-pink;
-      text-decoration: none;
     }
     button {
       height: $header-hei;

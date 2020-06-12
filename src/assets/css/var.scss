@@ -1,6 +1,7 @@
 $header-hei:40px;
 $footer-hei:25px;
 $left-wid:195px;
+$conta-wid:100%;
 // $color-dark:rgb(47, 50, 53);
 $color_bg: #eeeeee; // #323234;
 $color_dark: #333333;
@@ -13,3 +14,21 @@ $color-el-green:#67c23a;
 $color-el-red:#f56c6c;
 $color-el-orange:#e6a23c;
 $color-el-gray:#909399;
+
+@mixin conta-width() {
+  [data-thin="false"] & {
+    width: auto;
+  }
+  [data-thin="true"] & {
+    width: 1370px;
+  }
+}
+
+@mixin live2d-widget() {
+  [data-live2d="false"] & {
+    display: none;
+  }
+  [data-live2d="true"] & {
+    display: block;
+  }
+}

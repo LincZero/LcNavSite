@@ -1,7 +1,7 @@
 <template>
   <div class="box_site" v-if="$store.state.abroad || !item.abroad">
     <div class="relative">
-      <button @click="SiteClick">
+      <button @click="SiteClick(item.id)">
         <div class="static">
           <img :src="item.favicon" alt="Error" />
           <p>{{item.webName}}</p>
@@ -24,16 +24,30 @@
 </template>
 
 <script>
+import { request } from "@/network/request.js";
 export default {
   name: "Box_Site",
   props: {
     item: Object
   },
   methods: {
-    SiteClick() {
+    SiteClick(id) {
       if (true) {
         // Search IS NULL
-        window.open(this.item.href);
+        console.log(id);
+        request({
+          url: "/nav/site/clickRate",
+          params: {
+            id: id
+          }
+        });
+        let hrefSlash = this.item.hrefSlash;
+        let input = this.$store.state.input;
+        if (hrefSlash && input) {
+          window.open(hrefSlash + this.$store.state.input);
+        } else {
+          window.open(this.item.href);
+        }
       }
     }
   }
@@ -57,9 +71,6 @@ export default {
   button {
     height: $hei;
     width: $wid;
-    padding: 0;
-    border: none;
-    cursor: pointer;
     border-radius: $radius;
     background-color: #fff;
     .static {
@@ -80,9 +91,11 @@ export default {
   }
   .tag {
     $mar: 3px;
-    $mar2: 49px;// 25px;
-    width: 30px;
+    $mar2: 3px; //49px;
+    // width: 30px;
     height: 17px;
+    width: auto;
+    padding: 0 5px;
     border-radius: 5px;
     position: absolute;
     color: white;
@@ -97,19 +110,18 @@ export default {
       background: $color-pink;
     }
     &.rt {
-      width: 38px;
       right: $mar;
       top: $mar;
       background: $color-el-blue;
     }
     &.lb {
       left: $mar;
-      top: $mar2;
+      bottom: $mar2;
       background: $color-el-orange;
     }
     &.rb {
       right: $mar;
-      top: $mar2;
+      bottom: $mar2;
       background: $color-el-green;
     }
   }

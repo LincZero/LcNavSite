@@ -10,6 +10,11 @@ body {
   background-color: $color_bg;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 p {
   padding: 0;
   margin: 0;
@@ -17,4 +22,15 @@ p {
 
 a {
   cursor: pointer;
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }

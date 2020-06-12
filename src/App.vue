@@ -36,24 +36,13 @@ export default {
       this.$router.replace("/site");
     }
   },
-  mounted() {
-    setTimeout(() => {
-      window.L2Dwidget.init({
-        pluginRootPath: "live2dw/",
-        pluginJsPath: "lib/",
-        pluginModelPath: "live2d-widget-model-haru_2/assets/",
-        tagMode: false,
-        debug: false,
-        model: {
-          jsonPath:
-            "../live2dw/live2d-widget-model-haru_2/assets/haru_2.model.json"
-        },
-        display: { position: "right", width: 180, height: 495 },
-        mobile: { show: true },
-        log: false
-      });
-    }, 1000);
-  }
+  created() {
+    window.document.documentElement.setAttribute(
+      "data-thin",
+      this.$store.state.thin
+    );
+  },
+  
 };
 </script>
 

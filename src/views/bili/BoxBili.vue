@@ -1,31 +1,33 @@
 <template>
   <div class="box_bili">
-    <div class="img">
-      <img :src="item.pic" alt="Error" />
-      <div class="tag">
-        <div>
-          <i class="el-icon-finished"></i>
-          <p>{{item.s_like}}</p>
-        </div>
-        <div>
-          <i class="el-icon-star-off"></i>
-          <p>{{item.s_favorite}}</p>
-        </div>
-        <div>
-          <i class="el-icon-view"></i>
-          <p>{{item.s_view}}</p>
+    <button>
+      <div class="img">
+        <img :src="item.pic" alt="Error" />
+        <div class="tag">
+          <div>
+            <i class="el-icon-finished"></i>
+            <p>{{item.s_like}}</p>
+          </div>
+          <div>
+            <i class="el-icon-star-off"></i>
+            <p>{{item.s_favorite}}</p>
+          </div>
+          <div>
+            <i class="el-icon-view"></i>
+            <p>{{item.s_view}}</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="text">
-      <p>{{item.title}}</p>
-    </div>
-    <div class="label">
-      <div class="tag">
-        <i class="el-icon-collection-tag" style="display: inline-block;"></i>
-        <p style="display: inline-block;margin-left:2px">{{item.class}}</p>
+      <div class="text">
+        <p>{{item.title}}</p>
       </div>
-    </div>
+      <div class="label">
+        <div class="tag">
+          <i class="el-icon-collection-tag" style="display: inline-block;"></i>
+          <p style="display: inline-block;margin-left:2px">{{item.class}}</p>
+        </div>
+      </div>
+    </button>
   </div>
 </template>
 

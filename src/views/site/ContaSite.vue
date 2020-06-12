@@ -3,6 +3,19 @@
     <div v-for="item in dbData" :key="item.id">
       <BoxSite :item="item" />
     </div>
+    <div class="null"></div>
+    <div class="null"></div>
+    <div class="null"></div>
+    <div class="null"></div>
+    <div class="null"></div>
+    <div class="null"></div>
+    <div class="null"></div>
+    <div class="null"></div>
+    <div class="null"></div>
+    <div class="null"></div>
+    <div class="null"></div>
+    <div class="null"></div>
+    <div class="null"></div>
   </div>
 </template>
 
@@ -37,11 +50,15 @@ export default {
 
 <style lang="scss">
 .conta {
+  margin: auto;
   display: flex;
   flex-flow: row wrap;
-  justify-content: left;
-  > div {
-    // flex-grow:1;
-  }
+  // justify-content: left;
+  justify-content: center;
+}
+.null { // 防止最后一行居中
+  height: 0px;
+  width: 178px;
+  margin: 0 8px;
 }
 </style>

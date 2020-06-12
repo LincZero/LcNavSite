@@ -71,16 +71,23 @@ export default {
       };
     },
     handleSelect(item) {
+      request({
+        url: "/nav/site/clickRate",
+        params: {
+          id: item.id
+        }
+      });
       window.open(item.href);
     },
     handleChange(input) {
-      
+      this.$store.commit("fm_cg_input", this.state);
     },
     handleKey(event) {
       var evt = window.event || e;
       if (evt.keyCode === 13) {
-        search(this.state, (input) => {
-          this.state = input
+        search(this.state, input => {
+          this.state = input;
+          this.$store.commit("fm_cg_input", this.state);
         });
       }
     }

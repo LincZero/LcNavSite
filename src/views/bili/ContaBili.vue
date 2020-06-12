@@ -34,3 +34,12 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.conta {
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: left;
+}
+</style>

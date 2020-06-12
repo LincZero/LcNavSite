@@ -7,7 +7,7 @@
       </p>
     </div>
     <el-switch
-      style="margin-right:20px;margin-left:6px;float:left"
+      style="margin-right:2px;margin-left:6px;float:left"
       v-model="$store.state.abroad"
       active-color="#e482a3"
       inactive-color="#888888"
@@ -30,3 +30,6 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+</style>

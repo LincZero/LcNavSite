@@ -1,7 +1,7 @@
 const path = require('path')
 
-module.exports = { // 自动化导入
-  chainWebpack: config => {
+module.exports = {
+  chainWebpack: config => { // 自动化导入
     const oneOfsMap = config.module.rule('scss').oneOfs.store
     oneOfsMap.forEach(item => {
       item
@@ -13,5 +13,10 @@ module.exports = { // 自动化导入
         })
         .end()
     })
+  },
+  entry: { // 多入口
+    app: '@/main.js',
+    one: '@/js/one.js',
+    two: '@/js/two.js'
   }
 }

@@ -5,39 +5,25 @@
         <Conta webType="_model"></Conta>
       </el-tab-pane>
       <el-tab-pane label="平面设计" name="second">
-        <div class="conta">
-          <Conta webType="_plane"></Conta>
-        </div>
+        <Conta webType="_plane"></Conta>
       </el-tab-pane>
       <el-tab-pane label="影视设计" name="third">
-        <div class="conta">
-          <Conta webType="_video"></Conta>
-        </div>
+        <Conta webType="_video"></Conta>
       </el-tab-pane>
       <el-tab-pane label="程序开发" name="fourth">
-        <div class="conta">
-          <Conta webType="_develop"></Conta>
-        </div>
+        <Conta webType="_develop"></Conta>
       </el-tab-pane>
       <el-tab-pane label="网页开发">
-        <div class="conta">
-          <Conta webType="_web"></Conta>
-        </div>
+        <Conta webType="_web"></Conta>
       </el-tab-pane>
       <el-tab-pane label="游戏开发">
-        <div class="conta">
-          <Conta webType="_game"></Conta>
-        </div>
+        <Conta webType="_game"></Conta>
       </el-tab-pane>
       <el-tab-pane label="手册">
-        <div class="conta">
-          <Conta webType="_api"></Conta>
-        </div>
+        <Conta webType="_api"></Conta>
       </el-tab-pane>
       <el-tab-pane label="其他">
-        <div class="conta">
-          <Conta webType="_other"></Conta>
-        </div>
+        <Conta webType="_other"></Conta>
       </el-tab-pane>
     </TabBar>
   </div>
@@ -51,11 +37,8 @@ export default {
     TabBar: () => import("@/components/menu/TabBar.vue"),
     Conta: () => import("@/views/site/ContaSite.vue")
   }
-}
+};
 </script>
 
 <style lang="scss">
-.navsite {
-  // height: 100%;
-}
 </style>
