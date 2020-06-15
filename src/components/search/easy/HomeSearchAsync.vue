@@ -1,20 +1,20 @@
 <template>
   <!--With Async SuggestDisplay-->
-  <div @keydown="handleKey($event)" :class="{'searchAsync':true,'tab':this.$store.state.inputLock}">
+  <div
+    @keydown="handleKey($event)"
+    :class="{'searchAsync':true,'home':true,'tab':this.$store.state.inputLock}"
+  >
     <el-autocomplete
-      style="margin-top:4px;width:220px"
-      ref="search"
-      size="small"
+      style="width:850px"
+      ref="homeSearch"
       popper-class="autocomplete"
       class="inline-input"
       v-model="state"
-      prefix-icon="el-icon-search"
       :fetch-suggestions="querySearchAsync"
       :placeholder="placeholder"
       :trigger-on-focus="false"
       @select="handleSelect"
       @change="handleChange"
-      clearable
     >
       <template slot-scope="{ item }">
         <div class="left">
@@ -71,9 +71,9 @@ export default {
           id: item.id
         }
       });
-      if (this.$store.state.Lock && item.hrefSlash) {
+      if (this.$store.state.inputLock && item.hrefSlash) {
         // 若有锁存内容且网站可搜索，则搜索锁存内容
-        window.open(item.hrefSlash + this.$store.state.Lock);
+        window.open(item.hrefSlash + this.$store.state.inputLock);
       } else {
         window.open(item.href);
       }
@@ -86,14 +86,19 @@ export default {
       // 键盘事件
       searchEvent(this, event);
       setTimeout(() => {
-        this.$refs.search.$el.children[0].children[0].focus();
+        this.$refs.homeSearch.$el.children[0].children[0].focus();
       }, 150); // 这里的重新聚焦有点问题，如果不延迟会聚焦失败
     }
   },
   mounted() {
+    this.$refs.homeSearch.$el.children[0].children[0].focus(); // 手动聚焦
     siteDbPromise().then(res => {
       // 拿到异步数据库对象
-      this.restaurants = res;
+      if (!this.$store.state.abroad) { // 但有BUG，初始这里使用的是初始abroad
+        this.restaurants = res.filter((item) => {return !item.abroad});
+      } else {
+        this.restaurants = res;
+      }
     });
   }
 };
@@ -128,6 +133,15 @@ export default {
         color: #ddd;
       }
     }
+  }
+}
+.searchAsync.home {
+  // 大搜索框独占，以免干扰另一个
+  .el-input__inner {
+    height: 46px;
+    font: 16px arial, sans-serif;
+    box-shadow: 0 0 2px $color-shadow;
+    border-radius: 18px;
   }
 }
 .searchAsync.tab .el-input__inner {

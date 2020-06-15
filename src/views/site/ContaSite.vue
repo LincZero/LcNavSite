@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { request } from "@/network/request.js";
+import siteDbPromise from "@/network/home.js";
 export default {
   name: "ContaSite",
   components: {
@@ -35,14 +35,12 @@ export default {
     webType: String
   },
   mounted() {
-    request({
-      url: "/nav/site",
-      params: {
-        webType: this.webType
-      }
-    }).then(res => {
-      console.log(res.data);
-      this.dbData = res.data;
+    siteDbPromise().then(res => {
+      // 前端筛选，但这里要解决一下所以组件同步的问题
+      // 还要解决一下v-for循环不显示组件的问题（官方不推荐v-for和v-if一起用）
+      this.dbData = res.filter((item) => {
+        return (item.webType == this.webType);
+      });
     });
   }
 };
@@ -56,7 +54,8 @@ export default {
   // justify-content: left;
   justify-content: center;
 }
-.null { // 防止最后一行居中
+.null {
+  // 防止最后一行居中
   height: 0px;
   width: 178px;
   margin: 0 8px;

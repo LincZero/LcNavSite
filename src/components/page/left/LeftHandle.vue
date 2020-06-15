@@ -1,5 +1,5 @@
 <template>
-  <div id="lefthandle">
+  <div id="lefthandle" v-show="display">
     <el-button
       style="width:65px"
       :icon="icon"
@@ -18,6 +18,9 @@ export default {
   computed: {
     icon() {
       return this.$store.state.left?"el-icon-d-arrow-left":"el-icon-d-arrow-right"
+    },
+    display() {
+      return this.$route.name!='Home'
     }
   },
   methods: {

@@ -14,7 +14,7 @@
 
 <script>
 import { request } from "@/network/request";
-import { dealDbDate } from "@/common/search/autocomplete.js";
+import { dealDbDate } from "@/common/search/search/completeData.js";
 export default {
   name: "SearchS",
   data() {

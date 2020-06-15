@@ -17,11 +17,17 @@
 </template>
 
 <script>
+import checkNet from "@/network/checkNet.js";
 export default {
   data() {
     return {
       // value: true
     };
+  },
+  created() {
+    checkNet(bool => {
+      this.$store.commit("fm_cg_abroad", bool);
+    });
   },
   methods: {
     fn_cg_abroad(abroad) {

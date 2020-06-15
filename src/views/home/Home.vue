@@ -4,7 +4,10 @@
       <div>
         <Search></Search>
         <div class="advanced">
-          <a @click="more">进入高级模式</a>
+          <a @click="this.$router.replace('/engine')">高级模式</a>
+          <a @click="this.$router.replace('/site')">网站模式</a>
+          <a @click="this.$router.replace('/bili')">B站模式</a>
+          <a v-show="$store.state.inputLock">锁存内容：{{$store.state.inputLock}}</a>
         </div>
       </div>
     </transition>
@@ -20,13 +23,9 @@ export default {
     };
   },
   components: {
-    Search: () => import("@/components/search/easy/Search.vue")
+    Search: () => import("@/components/search/easy/HomeSearchAsync.vue")
   },
-  methods: {
-    more() {
-      this.$router.replace("/site");
-    }
-  }
+  methods: {}
 };
 </script>
 
@@ -35,9 +34,10 @@ export default {
   margin-top: 160px;
   .advanced {
     margin-top: 30px;
-  }
-  a {
-    color: $color-pink;
+    a {
+      margin: 0 15px;
+      color: $color-pink;
+    }
   }
 }
 

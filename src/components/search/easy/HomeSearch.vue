@@ -26,7 +26,6 @@
 export default {
   name:"Search",
   components: {
-    // SearchAsync: () => import("@/components/search/autocomplete/SearchAsync.vue")
   },
   computed: {
     placeholder() {

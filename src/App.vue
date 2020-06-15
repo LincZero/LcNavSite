@@ -42,7 +42,6 @@ export default {
       this.$store.state.thin
     );
   },
-  
 };
 </script>
 

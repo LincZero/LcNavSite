@@ -42,7 +42,7 @@ export default {
           }
         });
         let hrefSlash = this.item.hrefSlash;
-        let input = this.$store.state.input;
+        let input = this.$store.state.inputLock;
         if (hrefSlash && input) {
           window.open(hrefSlash + this.$store.state.input);
         } else {
