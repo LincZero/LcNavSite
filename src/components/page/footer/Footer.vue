@@ -26,7 +26,7 @@ export default {
     open() {
       console.log("click");
       this.$alert(
-        `<img src="pay/ZfbPay.png" alt="Error" style="width:300px;height:300px;margin-right:15px"><img src="pay/WeChatPay.png" alt="Error" style="width:300px;height:300px">`,
+        `<img src="payimg/ZfbPay.png" alt="Error" style="width:300px;height:300px;margin-right:15px"><img src="payimg/WeChatPay.png" alt="Error" style="width:300px;height:300px">`,
         "捐助作者",
         {
           dangerouslyUseHTMLString: true,

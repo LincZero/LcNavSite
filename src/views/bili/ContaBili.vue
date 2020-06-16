@@ -1,5 +1,5 @@
 <template>
-  <div class="conta">
+  <div class="biliConta">
     <div v-for="item in dbData" :key="item.id">
       <BoxBili :item="item"></BoxBili>
     </div>
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style lang="scss">
-.conta {
+.biliConta {
   margin: 0 auto;
   display: flex;
   flex-flow: row wrap;

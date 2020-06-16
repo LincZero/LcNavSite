@@ -3,7 +3,7 @@
     <div class="relative">
       <button @click="SiteClick(item.id)">
         <div class="static">
-          <img :src="item.favicon" alt="Error" />
+          <img :src="img" onerror="this.src='img/Null.ico'" alt="Error" />
           <p>{{item.webName}}</p>
         </div>
         <div class="tag lt" v-if="item.abroad">
@@ -25,10 +25,16 @@
 
 <script>
 import { request } from "@/network/request.js";
+import findFavicon from "@/common/findFavicon.js";
 export default {
   name: "Box_Site",
   props: {
     item: Object
+  },
+  computed: {
+    img() {
+      return this.item.favicon ? this.item.favicon : findFavicon(this.item.href);
+    }
   },
   methods: {
     SiteClick(id) {

@@ -26,16 +26,6 @@ export default {
     MidH: () => import("@/components/page/layout/MidH.vue"),
     Right: () => import("@/components/page/right/Right.vue")
   },
-  computed: {
-    easy() {
-      return this.$route.name == "Home";
-    }
-  },
-  methods: {
-    more() {
-      this.$router.replace("/site");
-    }
-  },
   created() {
     window.document.documentElement.setAttribute(
       "data-thin",
