@@ -33,19 +33,24 @@
 import { request } from "@/network/request";
 import searchEvent from "@/components/search/search/searchEvent.js";
 import siteDbPromise from "@/network/home.js";
+// import findFavicon from "@/common/findFavicon.js";
 export default {
   name: "SearchAsync",
   data() {
     return {
       restaurants: [],
       state: "",
-      timeout: null
+      timeout: null,
+      allowKey: true
     };
   },
   computed: {
     placeholder() {
       return this.$store.state.abroad ? "谷歌搜索" : "百度搜索";
-    }
+    },
+    // img(item2) {
+    //   return item2.favicon ? item2.favicon : findFavicon(item2.href);
+    // }
   },
   methods: {
     querySearchAsync(queryString, cb) {
@@ -65,6 +70,7 @@ export default {
     },
 
     handleSelect(item) {
+      this.allowKey = false; // 阻止回车搜索
       request({
         url: "/nav/site/clickRate",
         params: {
@@ -83,20 +89,27 @@ export default {
       searchEvent(this);
     },
     handleKey(event) {
-      // 键盘事件
-      searchEvent(this, event);
-      setTimeout(() => {
-        this.$refs.homeSearch.$el.children[0].children[0].focus();
-      }, 150); // 这里的重新聚焦有点问题，如果不延迟会聚焦失败
+      if (this.allowKey) {
+        // 键盘事件
+        searchEvent(this, event);
+        setTimeout(() => {
+          this.$refs.homeSearch.$el.children[0].children[0].focus();
+        }, 150); // 这里的重新聚焦有点问题，Tab默认会跳转到下一个表单元素中，如果不延迟会聚焦失败
+      } else {
+        this.allowKey = true;
+      }
     }
   },
   mounted() {
     this.$refs.homeSearch.$el.children[0].children[0].focus(); // 手动聚焦
     siteDbPromise().then(res => {
       // 拿到异步数据库对象
-      if (!this.$store.state.abroad) { // 但有BUG，初始这里使用的是初始abroad
-        this.restaurants = res.filter((item) => {return !item.abroad});
-      } else {
+      if (!this.$store.state.abroad) {
+        // 有BUG，这里的if并没有作用，初始时这里使用的是初始的abroad数据
+        this.restaurants = res.filter(item => {
+          return !item.abroad;
+        });
+      } else { // 若回车选择网站，则锁按键并进入按键事件进行解锁
         this.restaurants = res;
       }
     });

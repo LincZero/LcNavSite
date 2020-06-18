@@ -9,25 +9,26 @@
         <a @click="diyWindow=true">
           <i class="el-icon-circle-plus-outline"></i>
         </a>
-        <a @click="editable=!editable" :class="{'green':editable}" style="margin-left:0px">
-          <i :class="editable?'el-icon-circle-check':'el-icon-remove-outline'"></i>
+        <a @click="editAble=!editAble" :class="{'green':editAble}" style="margin-left:0px">
+          <i :class="editAble?'el-icon-circle-check':'el-icon-remove-outline'"></i>
         </a>
-        <a style="margin-left:0px">
+        <a @click="toolSetShow=!toolSetShow" :class="{'green':toolSetShow}" style="margin-left:0px">
           <i class="el-icon-s-operation"></i>
         </a>
         <a v-show="$store.state.inputLock">锁存内容：{{$store.state.inputLock}}</a>
       </div>
+      <SearchToolSet v-show="toolSetShow"></SearchToolSet>
       <div class="shortcutConta" style="margin-top:15px">
         <ShortcutItem
+          v-show="!toolSetShow"
           v-for="(item, index) in diy"
           :key="index"
           :index="index"
           :item="item"
-          :editable="editable"
+          :editAble="editAble"
           @deleteDiy="deleteDiy"
         ></ShortcutItem>
       </div>
-      <SearchToolSet></SearchToolSet>
     </div>
     <div v-if="diyWindow">
       <NewShortcut @cancel="cancel" @addDiy="addDiy"></NewShortcut>
@@ -63,7 +64,8 @@ export default {
       textData: null,
       diy: {},
       diyWindow: false,
-      editable: false
+      editAble: false,
+      toolSetShow: false
     };
   },
   computed: {},

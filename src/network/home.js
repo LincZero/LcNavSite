@@ -9,6 +9,10 @@ export default function siteDbPromise() { // 最终返回Promise对象
       url: "/nav/site"
     })
     .then((res) => {
+      if(res==="err"){
+        console.error('[SERVER ERROR]')
+        return(null)
+      }
       res = dealSiteDbDate(res.data)
       return new Promise((resolve, reject) => {
         resolve(res)

@@ -33,19 +33,24 @@
 import { request } from "@/network/request";
 import searchEvent from "@/components/search/search/searchEvent.js";
 import siteDbPromise from "@/network/home.js";
+// import findFavicon from "@/common/findFavicon.js";
 export default {
   name: "SearchAsync",
   data() {
     return {
       restaurants: [],
       state: "",
-      timeout: null
+      timeout: null,
+      allowKey: true
     };
   },
   computed: {
     placeholder() {
       return this.$store.state.abroad ? "谷歌搜索" : "百度搜索";
-    }
+    },
+    // img(item) {
+    //   return item.favicon ? item.favicon : findFavicon(item.href);
+    // }
   },
   methods: {
     querySearchAsync(queryString, cb) {
@@ -65,6 +70,7 @@ export default {
     },
 
     handleSelect(item) {
+      this.allowKey = false; // 阻止回车搜索
       request({
         url: "/nav/site/clickRate",
         params: {
@@ -83,11 +89,15 @@ export default {
       searchEvent(this);
     },
     handleKey(event) {
-      // 键盘事件
-      searchEvent(this, event);
-      setTimeout(() => {
-        this.$refs.search.$el.children[0].children[0].focus();
-      }, 150); // 这里的重新聚焦有点问题，如果不延迟会聚焦失败
+      if (this.allowKey) {
+        // 键盘事件
+        searchEvent(this, event);
+        setTimeout(() => {
+          this.$refs.search.$el.children[0].children[0].focus();
+        }, 150); // 这里的重新聚焦有点问题，Tab默认会跳转到下一个表单元素中，如果不延迟会聚焦失败
+      } else { // 若回车选择网站，则锁按键并进入按键事件进行解锁
+        this.allowKey = true;
+      }
     }
   },
   mounted() {

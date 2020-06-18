@@ -4,7 +4,7 @@
       <img :src="src" onerror="this.src='img/Null.ico'" alt="Error" />
     </button>
     <p>{{item.webName}}</p>
-    <div class="delete" v-if="editable">
+    <div class="delete" v-if="editAble">
       <a @click="deleteItem">
         <i class="el-icon-error" style="color:#f56c6c"></i>
       </a>
@@ -19,7 +19,7 @@ export default {
   props: {
     index: Number,
     item: Object,
-    editable: Boolean
+    editAble: Boolean
   },
   computed: {
     src() {

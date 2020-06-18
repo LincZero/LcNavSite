@@ -1,5 +1,6 @@
 <template>
   <div class="searchToolSet">
+    <p>（该功能开发中）</p>
     <ul>
       <p>LcNav内置</p>
       <button>百度翻译</button>
@@ -47,7 +48,7 @@ export default {
   box-sizing: border-box;
   width: 850px;
   height: 300px;
-  margin: 10px auto 0;
+  margin: 25px auto 0;
   padding: 10px;
   background-color: #fff;
   border: 1px solid #DCDFE6;
