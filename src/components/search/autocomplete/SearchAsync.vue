@@ -1,6 +1,6 @@
 <template>
   <!--With Async SuggestDisplay-->
-  <div @keydown="handleKey($event)" :class="{'searchAsync':true,'tab':this.$store.state.inputLock}">
+  <div @keydown="handleKey($event)" :class="{'searchAsync':true,'tab':$store.state.inputLock}">
     <el-autocomplete
       style="margin-top:4px;width:220px"
       ref="search"
@@ -18,7 +18,7 @@
     >
       <template slot-scope="{ item }">
         <div class="left">
-          <img :src="item.favicon" alt="Erroe" />
+          <img v-lazy="item.favicon" alt="Erroe" />
         </div>
         <div class="right">
           <div>{{ item.value }}</div>
@@ -32,7 +32,6 @@
 <script>
 import { request } from "@/network/request";
 import searchEvent from "@/components/search/search/searchEvent.js";
-import siteDbPromise from "@/network/home.js";
 // import findFavicon from "@/common/findFavicon.js";
 export default {
   name: "SearchAsync",
@@ -101,7 +100,7 @@ export default {
     }
   },
   mounted() {
-    siteDbPromise().then(res => {
+    this.$store.state.siteDb.then(res => {
       // 拿到异步数据库对象
       this.restaurants = res;
     });

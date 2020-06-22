@@ -1,0 +1,669 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>网站使用文档</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+/* 我自己的自定义区 */
+strong .md-plain{
+	color: #f56c6c;
+	/* color: #409eff; */
+}
+
+/* 正文标题区: #write */
+/* [TOC]目录树区: .md-toc-content */
+/* 侧边栏的目录大纲区: .sidebar-content */
+
+/** 
+ * 说明：
+ *     Typora的标题共有6级，从h1到h6。
+ *     我个人觉得h1级的标题太大，所以我的标题都是从h2级开始。
+ *     个人习惯每篇文章都有一个总标题，有一个目录，所以h2级的标题前两个都不会计数。
+ *     一般情况下，我虽然不使用h1级的标题，但是为了以防万一，h1级的标题前两个也都不会计数。
+ *     若想启用h1级标题，就取消包含“content: counter(h1) "."”项的注释，然后将包含“content: counter(h2) "."”的项注释掉即可。
+ */ 
+/** initialize css counter */
+#write, .sidebar-content,.md-toc-content{
+	/* 设置全局计数器的基准 */
+	/* 因为我喜欢从h2级标题用起，所以这里设置为h2 */
+    counter-reset: h2
+}
+
+#write h1, .outline-h1, .md-toc-item.md-toc-h1 {
+    counter-reset: h2
+}
+
+#write h2, .outline-h2, .md-toc-item.md-toc-h2 {
+    counter-reset: h3
+}
+
+#write h3, .outline-h3, .md-toc-item.md-toc-h3 {
+    counter-reset: h4
+}
+
+#write h4, .outline-h4, .md-toc-item.md-toc-h4 {
+    counter-reset: h5
+}
+
+#write h5, .outline-h5, .md-toc-item.md-toc-h5 {
+    counter-reset: h6
+}
+
+/** put counter result into headings */
+#write h1:before,
+.outline-h1>.outline-item>.outline-label:before,
+.md-toc-item.md-toc-h1>.md-toc-inner:before {
+    counter-increment: h1;
+    content: counter(h1) ". "
+}
+
+/* 使用h1标题时，去掉前两个h1标题的序号，包括正文标题、目录树和大纲 */
+/* nth-of-type中的数字表示获取第几个h1元素，请根据情况自行修改。 */
+#write h1:nth-of-type(1):before,
+.outline-h1:nth-of-type(1)>.outline-item>.outline-label:before,
+.md-toc-item.md-toc-h1:nth-of-type(1)>.md-toc-inner:before,
+#write h1:nth-of-type(2):before,
+.outline-h1:nth-of-type(2)>.outline-item>.outline-label:before,
+.md-toc-item.md-toc-h1:nth-of-type(2)>.md-toc-inner:before{
+	counter-reset: h1;
+	content: ""
+}
+
+#write h2:before,
+.outline-h2>.outline-item>.outline-label:before,
+.md-toc-item.md-toc-h2>.md-toc-inner:before {
+    counter-increment: h2;
+    content: counter(h2) ". "
+}
+
+/* 使用h2标题时，去掉前两个h2标题的序号，包括正文标题、目录树和大纲 */
+/* nth-of-type中的数字表示获取第几个h2元素，请根据情况自行修改。 */
+#write h2:nth-of-type(1):before,
+.outline-h2:nth-of-type(1)>.outline-item>.outline-label:before,
+.md-toc-item.md-toc-h2:nth-of-type(1)>.md-toc-inner:before,
+#write h2:nth-of-type(2):before,
+.outline-h2:nth-of-type(2)>.outline-item>.outline-label:before,
+.md-toc-item.md-toc-h2:nth-of-type(2)>.md-toc-inner:before{
+	counter-reset: h2;
+	content: ""
+}
+
+#write h3:before,
+h3.md-focus.md-heading:before, /** override the default style for focused headings */
+.outline-h3>.outline-item>.outline-label:before,
+.md-toc-item.md-toc-h3>.md-toc-inner:before {
+	text-decoration: none;
+    counter-increment: h3;
+    /* content: counter(h1) "." counter(h2) "." counter(h3) ". " */
+    content: counter(h2) "." counter(h3) ". "
+}
+
+#write h4:before,
+h4.md-focus.md-heading:before,
+.outline-h4>.outline-item>.outline-label:before,
+.md-toc-item.md-toc-h4>.md-toc-inner:before {
+	text-decoration: none;
+    counter-increment: h4;
+    /* content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) ". " */
+    content: counter(h2) "." counter(h3) "." counter(h4) ". "
+}
+
+#write h5:before,
+h5.md-focus.md-heading:before,
+.outline-h5>.outline-item>.outline-label:before,
+.md-toc-item.md-toc-h5>.md-toc-inner:before {
+	text-decoration: none;
+    counter-increment: h5;
+    /* content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) ". " */
+    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) ". "
+}
+
+#write h6:before,
+h6.md-focus.md-heading:before,
+.outline-h6>.outline-item>.outline-label:before,
+.md-toc-item.md-toc-h6>.md-toc-inner:before {
+	text-decoration: none;
+    counter-increment: h6;
+    /* content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) ". " */
+    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) ". "
+}
+
+/** override the default style for focused headings */
+#write>h3.md-focus:before,
+#write>h4.md-focus:before,
+#write>h5.md-focus:before,
+#write>h6.md-focus:before,
+h3.md-focus:before,
+h4.md-focus:before,
+h5.md-focus:before,
+h6.md-focus:before {
+    color: inherit;
+    border: inherit;
+    border-radius: inherit;
+    position: inherit;
+    left:initial;
+    float: none;
+    top:initial;
+    font-size: inherit;
+    padding-left: inherit;
+    padding-right: inherit;
+    vertical-align: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><h2><a name="lcnav网站手册" class="md-header-anchor"></a><span>LcNav网站手册</span></h2><p><span>为了让您能更好地使用网站，建议您花2分钟时间浏览此手册的 </span><a href='#使用教程'><span>使用教程</span></a><span> 部分。（该手册持续更新）</span></p><ol start='' ><li><p><span>若您在使用过程中还想继续观看该手册，可以点击导航右侧菜单的感叹号按钮</span><img src=".\assets\image-20200614074349096.png" referrerpolicy="no-referrer" alt="image-20200614074349096"><span>。</span></p></li><li><p><span>建议通过导航右侧菜单的分享按钮将该导航网站分享给您的朋友</span><img src=".\assets\image-20200614074418022.png" referrerpolicy="no-referrer" alt="image-20200614074418022"><span>，以确保他们能够看到该手册。</span></p><p><span>或分享该链接：</span><a href='http://www.lingchu.xyz/readme' target='_blank' class='url'>http://www.lingchu.xyz/readme</a></p></li><li><p><span>如果您已经知道该如何如何使用该网站，或者您希望结合着网站观看此文档，可直接进入 </span><a href='http://www.lingchu.xyz/#/home'><span>导航首页</span></a><span> </span></p></li></ol><p><strong><span>网站特点</span></strong></p><ol start='' ><li><p><span>使用SPA（单页面富应用程序），使用异步更新。</span></p><p><span>切换顺滑，免除了在网站使用过程中页面被频繁刷新带来的低用户体验。</span></p></li><li><p><span>网站的核心搜索栏功能，集简洁易用、快捷、功能多且强大为一体，是网站理念的体现。</span></p></li></ol><h2><a name="目录" class="md-header-anchor"></a><span>目录</span></h2><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n0"><a class="md-toc-inner" href="#lcnav网站手册">LcNav网站手册</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n19"><a class="md-toc-inner" href="#目录">目录</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n21"><a class="md-toc-inner" href="#使用教程">使用教程</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n22"><a class="md-toc-inner" href="#搜索栏">搜索栏</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n25"><a class="md-toc-inner" href="#智能选择引擎">智能选择引擎</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n36"><a class="md-toc-inner" href="#网站补全及快速入站">网站补全及快速入站</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n43"><a class="md-toc-inner" href="#指令功能">指令功能</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n45"><a class="md-toc-inner" href="#快捷键">快捷键</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n66"><a class="md-toc-inner" href="#功能性指令">功能性指令</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n89"><a class="md-toc-inner" href="#快速访问指令">快速访问指令</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n142"><a class="md-toc-inner" href="#网页引擎指令">网页引擎指令</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n239"><a class="md-toc-inner" href="#锁存搜索">锁存搜索</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n252"><a class="md-toc-inner" href="#搜索栏工具">搜索栏工具</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n270"><a class="md-toc-inner" href="#使用案例">使用案例</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n273"><a class="md-toc-inner" href="#搜索材质案例">搜索材质案例</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n2278"><a class="md-toc-inner" href="#搜索开源项目案例">搜索开源项目案例</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n275"><a class="md-toc-inner" href="#引擎指令实例">引擎指令实例</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n277"><a class="md-toc-inner" href="#排除匹配">排除匹配</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n280"><a class="md-toc-inner" href="#多关键词与包含匹配">多关键词与包含匹配</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n298"><a class="md-toc-inner" href="#并行匹配">并行匹配</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n306"><a class="md-toc-inner" href="#完整匹配">完整匹配</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n321"><a class="md-toc-inner" href="#限定类">限定类</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n352"><a class="md-toc-inner" href="#功能区">功能区</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n353"><a class="md-toc-inner" href="#顶部状态栏">顶部状态栏</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n356"><a class="md-toc-inner" href="#网络状态栏">网络状态栏</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n361"><a class="md-toc-inner" href="#顶部搜索框">顶部搜索框</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n364"><a class="md-toc-inner" href="#网站模式切换区">网站模式切换区</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n367"><a class="md-toc-inner" href="#左侧导航">左侧导航</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n369"><a class="md-toc-inner" href="#右侧菜单栏">右侧菜单栏</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n384"><a class="md-toc-inner" href="#下方文字栏">下方文字栏</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n397"><a class="md-toc-inner" href="#简易模式">简易模式</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n428"><a class="md-toc-inner" href="#网站模式">网站模式</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n429"><a class="md-toc-inner" href="#普通状态">普通状态</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n431"><a class="md-toc-inner" href="#大陆优化">大陆优化</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n436"><a class="md-toc-inner" href="#适配模式">适配模式</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n440"><a class="md-toc-inner" href="#网页块说明">网页块说明</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n477"><a class="md-toc-inner" href="#b站模式">B站模式</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n478"><a class="md-toc-inner" href="#普通状态-n478">普通状态</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n480"><a class="md-toc-inner" href="#适配状态">适配状态</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n484"><a class="md-toc-inner" href="#其他">其他</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n485"><a class="md-toc-inner" href="#live2d">Live2D</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n490"><a class="md-toc-inner" href="#浏览器的配合优化">浏览器的配合优化</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n491"><a class="md-toc-inner" href="#浏览器扩展插件搭档">浏览器扩展/插件搭档</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n492"><a class="md-toc-inner" href="#加入网页到浏览器首页">加入网页到浏览器首页</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n493"><a class="md-toc-inner" href="#加入网页到新增标签页">加入网页到新增标签页</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n494"><a class="md-toc-inner" href="#网站理念与闲话">网站理念与闲话</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n495"><a class="md-toc-inner" href="#站长de闲话">站长de闲话</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n510"><a class="md-toc-inner" href="#搜索框理念">搜索框理念</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n518"><a class="md-toc-inner" href="#平台分类代理理念">平台分类代理理念</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n519"><a class="md-toc-inner" href="#其他理念">其他理念</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n520"><a class="md-toc-inner" href="#后台手册">后台手册</a></span></p></div><h2><a name="使用教程" class="md-header-anchor"></a><span>使用教程</span></h2><h3><a name="搜索栏" class="md-header-anchor"></a><span>搜索栏</span></h3><h4><a name="智能选择引擎" class="md-header-anchor"></a><span>智能选择引擎</span></h4><p><span>能智能检测您当前的网络状态并智能选择不同的搜索引擎。</span></p><p><span>如中国大陆的联网情况会默认使用百度引擎、国外或港澳等地联网情况下默认使用谷歌搜索引擎。</span></p><p><span>当然您也可以通过顶部状态栏的切换工具进行手动切换</span><img src=".\assets\image-20200614074755205.png" referrerpolicy="no-referrer" alt="image-20200614074755205"></p><p><span>注意：如果您连接外网的网速过慢，也会自动切换到大陆联网。</span></p><blockquote><p><span>题外话</span></p><p><span>如果您希望能在搜索过后还能保留搜索关键词的同时切换搜索引擎，这里推荐一个浏览器扩展：搜索拐杖</span></p><p><span>火狐与谷歌浏览器的扩展程序商店都有，简单易用 √</span></p></blockquote><p><img src=".\assets\image-20200614133721037.png" referrerpolicy="no-referrer" alt="image-20200614133721037"></p><p><img src=".\assets\image-20200614133446454.png" referrerpolicy="no-referrer" alt="image-20200614133446454"><span>.</span></p><h4><a name="网站补全及快速入站" class="md-header-anchor"></a><span>网站补全及快速入站</span></h4><p><span>当您搜索时，下方会出现网站的建议项。匹配模式为包含匹配。</span></p><p><span>一般输入3个字母即可出现你想要的结果，您可以选择对应的网站直接进入到网站的根部</span></p><p><span>而不用再像传统流程那样，先打开引擎 &gt; 搜索网站名 &gt; 躲过广告找到您所需要的网站 &gt; 再进入</span></p><p><img src=".\assets\image-20200614134002635.png" referrerpolicy="no-referrer" alt="image-20200614134002635"></p><h4><a name="指令功能" class="md-header-anchor"></a><span>指令功能</span></h4><p><span>搜索栏的指令功能分为四种：快捷键、功能性指令、快速访问指令、网页引擎指令</span></p><h5><a name="快捷键" class="md-header-anchor"></a><span>快捷键</span></h5><ul><li><span>隐藏式指令，指令表：</span></li></ul><figure><table><thead><tr><th><span>指令</span></th><th><span>指令内容</span></th><th><span>指令</span></th><th><span>指令内容</span></th></tr></thead><tbody><tr><td><span>Enter</span></td><td><span>搜索</span></td><td><span>Ese</span></td><td><span>清空搜索框</span></td></tr><tr><td><span>Tab</span></td><td><span>锁存</span></td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table></figure><h5><a name="功能性指令" class="md-header-anchor"></a><span>功能性指令</span></h5><ul><li><p><span>使用方法：</span></p><p><code>-指令名称</code><span>，需要注意的是符号</span><code>-</code><span>前要有一个空格，</span><code>-</code><span>后面则不需要预留空格</span></p></li><li><p><span>指令表：（其中翻译指令在使用国外网站时十分必要，用中文您可能难以搜到想要的结果，建议先译后搜）</span></p></li></ul><figure><table><thead><tr><th><span>指令</span></th><th><span>指令内容</span></th><th><span>指令</span></th><th><span>指令内容</span></th></tr></thead><tbody><tr><td><span>t</span></td><td><span>翻译 (translate)</span></td><td><span>c</span></td><td><span>清空搜索框 (clear)</span></td></tr><tr><td><span>o</span></td><td><span>外部搜索 (out)（未开发）</span></td><td><span>h</span></td><td><span>劫持搜索（hijacking）（未开发）</span></td></tr></tbody></table></figure><h5><a name="快速访问指令" class="md-header-anchor"></a><span>快速访问指令</span></h5><ul><li><p><span>使用方法：（同上）</span></p><p><code>-指令名称</code><span>，需要注意的是符号</span><code>-</code><span>前要有一个空格，</span><code>-</code><span>后面则不需要预留空格</span></p></li><li><p><span>指令表：</span></p></li></ul><figure><table><thead><tr><th><span>指令</span></th><th><span>指令内容</span></th><th><span>指令</span></th><th><span>指令内容</span></th></tr></thead><tbody><tr><td><span>bd</span></td><td><span>百度搜索</span></td><td><span>gg</span></td><td><span>谷歌搜索</span></td></tr><tr><td><span>bdtp</span></td><td><span>百度图片</span></td><td><span>ggtp</span></td><td><span>谷歌图片</span></td></tr><tr><td><span>bdfy</span></td><td><span>百度翻译</span></td><td><span>ggfy</span></td><td><span>谷歌翻译</span></td></tr><tr><td><span>bdsp</span></td><td><span>百度视频</span></td><td><span>ggsp</span></td><td><span>谷歌视频</span></td></tr><tr><td><span>bdst</span></td><td><span>百度识图</span></td><td><span>ggst</span></td><td><span>谷歌识图</span></td></tr><tr><td><span>bdzx</span></td><td><span>百度资讯</span></td><td><span>ggxw</span></td><td><span>谷歌新闻</span></td></tr><tr><td><span>bddt</span></td><td><span>百度地图</span></td><td><span>ggdt</span></td><td><span>谷歌地图</span></td></tr><tr><td><span>bdxs</span></td><td><span>百度学术</span></td><td><span>(无)</span></td><td><span>(无)</span></td></tr></tbody></table></figure><h5><a name="网页引擎指令" class="md-header-anchor"></a><span>网页引擎指令</span></h5><p><span>需要注意的是，引擎指令并不属于本网站提供，而是由搜索引擎自带提供，用于检索网页结果。</span></p><p><span>很多搜索引擎都有，引擎不用于检索网页时可能无效。</span></p><p><span>这里暂且列出百度和谷歌引擎的常用指令。</span></p><ul><li><p><span>使用方法：</span></p><p><span>直接写上补充的指令即可。需要注意的是：关键词与指令、指令与指令之间需要空格间隔开</span></p><p><span>有点标注“非输入框指令”意指不能通过在输入框输入来操作，建议通过官方的高级搜索进行</span></p></li><li><p><span>指令表：匹配类</span></p></li></ul><figure><table><thead><tr><th><span>百度引擎指令</span></th><th><span>谷歌引擎指令</span></th><th><span>作用</span></th></tr></thead><tbody><tr><td><span>-keyword</span></td><td><span>-keyword</span></td><td><span>排除关键词（排除匹配）</span></td></tr><tr><td><span>+keyword</span></td><td><span>(无)</span></td><td><span>(无)</span></td></tr><tr><td><span>“keyword”</span></td><td><span>“keyword”</span></td><td><span>完整搜索（完整匹配）</span></td></tr><tr><td><span>keyword1 </span><span>|</span><span> keyword2</span></td><td><span>keyword1 </span><span>|</span><span> keyword2</span></td><td><span>并行搜索（并行匹配）</span></td></tr><tr><td><span>(无)</span></td><td><span>number1..number2 unit</span></td><td><span>数字范围</span></td></tr></tbody></table></figure><ul><li><span>指令表：限定类</span></li></ul><figure><table><thead><tr><th><span>百度引擎指令</span></th><th><span>谷歌引擎指令</span></th><th><span>作用</span></th><th><span>百度指令参数</span></th><th><span>谷歌指令参数</span></th></tr></thead><tbody><tr><td><span>site:域名</span></td><td><span>site:域名</span></td><td><span>指定网页的网站</span><br><span>（不能加协议头，子域名可选）</span></td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td><span>inurl:keyword</span><br><span>title:keyword</span><br><span>intitle: keyword</span><br><span>allintext: kw1 kw2</span></td><td>&nbsp;</td><td><span>指定网页的网站 - 进阶</span><br><span>指定网页的标题</span><br><span>指定网页的标题 - 另一种写法</span><br><span>指定网页标题搜索 - 并行</span></td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td><span>filetype:文件类型</span><br><span>(工具)</span></td><td><span>filetype:文件类型</span></td><td><span>指定附件文件格式</span><br><span>（不加点）</span></td><td><span>pdf</span><span>|</span><span>doc</span><span>|</span><span>xls</span><span>|</span><span>ppt</span><span>|</span><span>rtf</span></td><td><span>pdf</span><span>|</span><span>doc</span><span>|</span><span>xls</span><span>|</span><span>ppt</span><span>|</span><span>rtf</span><span>|</span><br><span>ps</span><span>|</span><span>dwf</span><span>|</span><span>kml</span><span>|</span><span>kmz</span><span>|</span><span>swf</span></td></tr><tr><td><span>(非输入框指令)</span></td><td><span>(非输入框指令)</span></td><td><span>指定网页语言</span></td><td><span>全部、仅简体、仅繁体</span></td><td><span>几乎所有语种</span></td></tr><tr><td><span>(无)</span></td><td><span>(非输入框指令)</span></td><td><span>指定网页发布地区</span></td><td><span>(无)</span></td><td><span>几乎所有地区</span></td></tr><tr><td><span>(非输入框指令)</span><br><span>(工具)</span></td><td><span>(非输入框指令)</span><br><span>(工具)</span></td><td><span>指定网页发布时间</span></td><td><span>可自定义</span></td><td><span>可自定义</span></td></tr></tbody></table></figure><p>&nbsp;</p><ul><li><p><span>由于搜索指令由引擎自带，您可以在使用搜索引擎时直接使用上诉指令。您也可以再引擎页中找到相关的高级搜索</span></p><ul><li><span>百度高级搜索 -1</span></li></ul><p><img src=".\assets\image-20200614132553992.png" referrerpolicy="no-referrer" alt="image-20200614132553992"></p><ul><li><p><span>百度高级搜索 -2</span></p><p><img src=".\assets\image-20200614132955101.png" referrerpolicy="no-referrer" alt="image-20200614132955101"></p></li><li><p><span>谷歌高级搜索</span></p></li></ul></li></ul><p><img src=".\assets\image-20200614132836818.png" referrerpolicy="no-referrer" alt="image-20200614132836818"></p><h4><a name="锁存搜索" class="md-header-anchor"></a><span>锁存搜索</span></h4><p><strong><span>快捷搜索栏功能的核心之一</span></strong></p><p><span>如果你想要快速在想要的网站内得到搜索结果，除了可以使用引擎指令、入站搜索，还可以通过此网站的锁存搜索。</span></p><p><span>步骤为：</span></p><ol start='' ><li><p><span>输入您想要搜索的关键词并按Tab键。</span></p><p><span>此时搜索框变为绿色，内容清空（内容被另外存储了起来）。即进入了锁存模式</span></p><p><span>在简易模式下搜索栏下方则会出现锁存内容。如果想要返回上一步/想重新编辑想要搜索的内容再按一次Tab键即可</span></p></li><li><p><span>在搜索栏中搜索需要进入的网站，或者也可以在网站模式下用鼠标点击你想要搜索的网站</span></p></li></ol><p><span>然后就能在你想要检索的网站中搜索你想要搜索的内容了！</span></p><p><span>如果你想要在</span></p><h3><a name="搜索栏工具" class="md-header-anchor"></a><span>搜索栏工具</span></h3><p><span>搜索栏工具为搜索栏提供额外的使用支撑</span></p><p><span>尽管命令指令的使用十分快速，但也有人不喜欢记忆指令/花费大量时间学习。就像是百度和谷歌两家引擎自带的指令，如果你用习惯了能大幅增强你的检索能力。但事实上这么好用的东西用得人并不多。</span></p><ol start='' ><li><span>一来人类总是懒惰的，或者嫌麻烦</span></li><li><span>有的人认为直接搜索够用、没必要。其本质是认为是付出与回报不相符</span></li><li><span>有的人在需要用的时候直接用高级搜索，不用指令</span></li><li><span>有的人用，但引擎指令并不是每次搜索都有必要，有时你突然需要用了却忘记了某个指令怎么打（emm我就是）</span></li></ol><p><span>所以这里增设了搜索栏工具！类似于工具集，大大降低使用和学习成本。</span></p><p><span>在工具集中，为各种指令提供快速的图形化工具，就像百度和谷歌引擎的高级搜索界面一样</span></p><p><span>虽然官方这里</span><strong><span>推荐使用的是指令方式</span></strong><span>（更加符合导航设计理念），但您仍可以结合自身的情况选择使用搜索框指令或使用搜索栏工具（命令行与GUI界面之争）</span></p><p><span>具体使用：</span></p><p><span>（开发中，这个其实搜索栏工具旧导航网站也有。长这样：[下图]，可折叠展开）</span></p><p><img src=".\assets\image-20200617160345314.png" referrerpolicy="no-referrer" alt="image-20200617160345314"><span>.</span></p><h3><a name="使用案例" class="md-header-anchor"></a><span>使用案例</span></h3><p><span>上面说了这么多，您可能还不太清楚该网站导航的强大性。</span></p><p><span>这里使用两个案例让你快速领略快捷搜索的强大之处 —— </span><strong><span>一个搜索栏，一次性完成所有复杂的搜索步骤！最快得到最优结果</span></strong></p><h4><a name="搜索材质案例" class="md-header-anchor"></a><span>搜索材质案例</span></h4><p>&nbsp;</p><h4><a name="搜索开源项目案例" class="md-header-anchor"></a><span>搜索开源项目案例</span></h4><p>&nbsp;</p><h4><a name="引擎指令实例" class="md-header-anchor"></a><span>引擎指令实例</span></h4><p><span>来看一下结果差异，然后判断一下使用场景</span></p><h5><a name="排除匹配" class="md-header-anchor"></a><span>排除匹配</span></h5><p><strong><span>使用场景：【常用之一】多用于排除干扰项，当搜索结果出现另一不相关的高热度名词时可用。</span></strong><span>如 </span><code>王者 -荣耀</code></p><p><img src=".\assets\image-20200616152943916.png" alt="image-20200616152943916" style="zoom:80%;" /><img src=".\assets\image-20200616153202950.png" alt="image-20200616153202950" style="zoom:80%;" /></p><h5><a name="多关键词与包含匹配" class="md-header-anchor"></a><span>多关键词与包含匹配</span></h5><p><span>其实第一次了解到包含搜索时我个人就挺不解其意义所在，感觉结果好像没有什么区别</span></p><p><span>所以这里就用两个完全不相干的词来比较两者的区别</span></p><p><span>区别之一是双关键词而言搜索结果两个关键词为红色，而包含匹配只有主关键词显示为红色</span></p><p><span>（后来又试了一下，好像又不一定的......迷惑）</span></p><p><span>区别之二是侧重点。两者使用不同算法。根据测试结果可以判断以下性质（非官方，仅参考）</span></p><ul><li><p><span>使用双关键词时关键词两者的权重相同。</span></p><p><span>但关键词的顺序对结果有所影响。引擎会更优选择对应关键词出现顺序的结果。</span></p><p><span>双关键词可以理解为两个同权重的关键词一起搜索，也可以理解为一个可以在空格处插入内容的独立关键词</span></p></li><li><p><span>而包含搜索中，关键词的权重会比包含的对象更高。</span></p><p><span>可以看到“安全 +草”内容偏安全更多，如安全地除草，“草 +安全”内容则更偏向于草，如除草剂的安全使用。</span></p></li></ul><p><span>了解规律后，即你可以通过配置关键词权重来突出你想要询问的重点从而来优化引擎结果</span></p><p><strong><span>使用场景：【很少使用】想同时包含其他关键词但又不想结果被另一个关键词喧宾夺主时应选择包含匹配。</span></strong><span>如......emm使用场景这个有点魔性我也说不准，用得比较少，大概是搜索结果不理想时可以当做是换一种算法试试看用的样子。</span></p><p><img src=".\assets\image-20200616154110006.png" alt="image-20200616154110006" style="zoom:80%;" /><img src=".\assets\image-20200616153934159.png" alt="image-20200616153934159" style="zoom:80%;" /></p><p><img src=".\assets\image-20200616154532064.png" alt="image-20200616154532064" style="zoom:80%;" /><img src=".\assets\image-20200616154945947.png" alt="image-20200616154945947" style="zoom:80%;" /></p><h5><a name="并行匹配" class="md-header-anchor"></a><span>并行匹配</span></h5><p><span>包含匹配、这里的并行匹配、排除匹配，非别对应逻辑运算的与、或、非（但或者说多关键词和“与”相对应会更合适些）</span></p><p><span>作用而言就是让仅包含A或仅包含B的检索结果都能显示出来。</span></p><p><span>但并行搜索对并行搜索的两个关键词有一个十分苛刻的要求，他要求两个关键词的热度相似，像搜索</span><code>颜色 | 形状</code><span>时，首页除去百度图片和视频外，“颜色”的结果在8条数据占6条，在第二页中，“颜色”更是占满了10条结果！而如果你的两个关键词相关性较差，甚至有可能只会出现其中一个结果！</span></p><p><span>搭配指定网站指令也是同理，很容易会只出现一个网站的结果（网站集搜索那种先不提）</span></p><p><span>所以一般不会使用并行搜索来并行检索两个关键词，一般都会分别搜索两个关键词。</span></p><p><strong><span>使用场景：【很少使用】不要用来并行检索关键词或配合指定网站指令，一般用来配合指定文档格式和更新时间这类的指令结合使用</span></strong></p><p><img src=".\assets\image-20200616161624943.png" alt="image-20200616161624943" style="zoom:80%;" /><span>.</span><img src=".\assets\image-20200616162432627.png" alt="image-20200616162432627" style="zoom:80%;" /></p><h5><a name="完整匹配" class="md-header-anchor"></a><span>完整匹配</span></h5><p><span>完整匹配能够保留你的搜索词不被加工，具体作用体现在几方面上</span></p><ol start='' ><li><p><span>一般用法：使关键词不会被拆开（中间不会被加入其它字）</span></p><p><span>但这也有另一种解决方式：点击下方的“仍然搜索”，这也会让你的关键词被视为一个整体从而避免被拆分</span></p></li><li><p><span>特殊用法：使关键词不会被合并</span></p></li><li><p><span>解决冲突：解决与引擎命令冲突的问题，如用双引号引起</span><code>五 -二</code><span>后搜索，就不会得到排除匹配的结果</span></p></li></ol><p><strong><span>使用场景：当您搜索的结果出现上述问题时</span></strong></p><p><img src=".\assets\image-20200616191339327.png" alt="image-20200616191339327" style="zoom:80%;" /><img src=".\assets\image-20200616191307833.png" alt="image-20200616191307833" style="zoom:80%;" /></p><p>&nbsp;</p><p><img src=".\assets\image-20200616165536079.png" alt="image-20200616165536079" style="zoom:80%;" /><img src=".\assets\image-20200616165612416.png" alt="image-20200616165612416" style="zoom:80%;" /></p><p>&nbsp;</p><h5><a name="限定类" class="md-header-anchor"></a><span>限定类</span></h5><p><span>限定类的功能比较好理解，这里就不一一列举了。总体来说，需要的时候都十分有用。</span></p><ol start='' ><li><p><strong><span>最常用的莫过于是指定网站搜索</span></strong><span>。但要注意几个点：</span></p><ul><li><p><span>如果对应网站没有内部检索，或者内部检索做得较差。使用引擎进行指定网站搜索更优。</span></p><p><span>像一些公司官方定期发布信息的网站，他们自制的内部检索还远不如百度谷歌的优秀方案。这时就要善用该指令。</span></p></li><li><p><span>但通常的，对于更多富内容的大众网站而言，由于网站自己都会对检索结果做专门的优化，针对性更强、参考项更多！</span></p><p><span>如淘宝京东等购物网站、B站腾讯爱奇艺等视频网站、知乎简书贴吧微博等社交或发文网站。比起网页引擎的通用性爬虫无疑更佳。</span></p></li></ul><ul><li><p><span>自然语言类搜索。像百度和谷歌之类的引擎搜索，对自然语言、模糊处理的处理更加强大。（不建议搜索自然语言）</span></p><p><span>比如你想搜索的东西更加口语化、又或者是你只大概记得某文章的标题需要进行模糊搜索，搜索引擎对这类问题的处理远比网站内的更优。</span></p></li></ul><ul><li><p><span>还有一类就是网站内部对检索功能的限制，如防止用户搜索到一些网站内部想屏蔽的东西。</span></p><p><span>你可以使用引擎的网站搜索绕过规则，不过这类并不常见，因为这类网站一般也会有反爬虫策略来同时阻止搜索引擎爬虫。</span></p><p><span>虽然已经用不了，但还是提一下，像十分早期百度云盘，就是可用通过 </span><code>keyword site:pan.baidu.com</code><span> 搜索检索一些内容的（不过内容也有限）</span></p><p><span>（现在什么结果都没有了，我刚刚又去试了一下）</span></p></li></ul></li><li><p><strong><span>其次是寻找资源时会用到的指定文档格式</span></strong><span>。</span></p><p><span>可惜之处就是由于支持的文件格式有限（5种），当然，谷歌比百度的爬虫多爬取了更多的格式（10种），但也十分有限。（详见</span><a href='#网站引擎指令'><span>网站引擎指令</span></a><span>）</span></p><p><span>但如果你希望找到就是这些格式的文件，这条指令几乎是必用。</span></p></li><li><p><strong><span>最后是更新时间和关键词位置</span></strong></p><ul><li><p><span>更新时间限定最大的用处就是搜新闻，以及你想了解某一个时段的文章、发文、论坛里讨论的内容，了解过去。</span></p><p><span>B站百大“老师好我叫何同学”的成名战5G视频里，用的就是这招。而对于写论文、社会学研究来讲都非常有用！</span></p></li><li><p><span>一般我们不关心关键词所在的位置，可能认为关键词出现在文章的标题里还是内容都无所谓。大多数情况也正是这样。</span></p><p><span>但有时你希望关键词能拥有更高的权重，那些只是草草在文章里带过就不要显示了。</span></p><p><span>又或者你清楚记得以前看过的某个文章的标题并想找回来，就可以用该指令。</span></p></li></ul></li></ol><h2><a name="功能区" class="md-header-anchor"></a><span>功能区</span></h2><h3><a name="顶部状态栏" class="md-header-anchor"></a><span>顶部状态栏</span></h3><p><span>顶部状态栏，分别为顶部搜索框、网络状态、网站模式区三个部分</span></p><p><img src=".\assets\image-20200614074459746.png" referrerpolicy="no-referrer" alt="image-20200614074459746"><span>.</span></p><h4><a name="网络状态栏" class="md-header-anchor"></a><span>网络状态栏</span></h4><p><span>您可以手动在两种模式下自由切换</span><img src=".\assets\image-20200614074755205.png" referrerpolicy="no-referrer" alt="image-20200614074755205"><img src=".\assets\image-20200614074817899.png" referrerpolicy="no-referrer" alt="image-20200614074817899"><span>，以根据您的网络情况为您提供更适配的导航结果。</span></p><p><span>优化结果请看网络状态对搜索栏和网站模式显示结果的影响。</span></p><p><strong><span>当然，网站为你提供了更加便捷的服务！</span></strong></p><p><span>当你入站时，网站会自动检测您的网络状态从而自动切换，而无需您每次手动调整。</span></p><h4><a name="顶部搜索框" class="md-header-anchor"></a><span>顶部搜索框</span></h4><p><span>能根据网络状态栏的当前模式，在谷歌搜索（国外）和百度搜索（国内）之间自动选择引擎搜索。</span></p><p><span>该顶部搜索框功能与简易模式下的大搜索框功能一致，更多具体功能请看搜索栏一节 </span><a href='#搜索栏'><span>搜索栏</span></a><span> ，此处不再赘述。</span></p><h4><a name="网站模式切换区" class="md-header-anchor"></a><span>网站模式切换区</span></h4><p><span>能够切换网站的当前模式，不同模式下网站所呈现出来的内容重点不同。</span></p><p><span> </span><a href='#搜索栏'><span>简易模式</span></a><span>  </span><a href='#网站模式'><span>网站模式</span></a><span>  </span><a href='#b站模式'><span>B站模式</span></a><span> </span></p><h3><a name="左侧导航" class="md-header-anchor"></a><span>左侧导航</span></h3><p><span>开发中</span></p><h3><a name="右侧菜单栏" class="md-header-anchor"></a><span>右侧菜单栏</span></h3><p><span>鼠标悬停在功能区上就会有相关提示，但为了文档的完整性，这里还是把功能列出来吧</span></p><p><img src=".\assets\image-20200614082318927.png" referrerpolicy="no-referrer" alt="image-20200614082318927"><span>折叠/展开 —— 折叠/展开右侧菜单。根据进入网站的入口来选择初始状态。</span></p><p><span>简易模式进入默认为折叠状态、反之默认为展开状态。</span></p><p><img src=".\assets\image-20200614081439853.png" referrerpolicy="no-referrer" alt="image-20200614081439853"><span>登录 —— （开发中）</span></p><p><img src=".\assets\image-20200614081446460.png" referrerpolicy="no-referrer" alt="image-20200614081446460"><span>外网说明 —— （开发中）</span></p><p><img src=".\assets\image-20200614081615618.png" referrerpolicy="no-referrer" alt="image-20200614081615618"><span>设置 —— （开发中）</span></p><p><img src=".\assets\image-20200614081627105.png" referrerpolicy="no-referrer" alt="image-20200614081627105"><span>官网主页 —— 进入官网主页</span></p><p><img src=".\assets\image-20200614082026258.png" referrerpolicy="no-referrer" alt="image-20200614082026258"><span>皮肤主题 —— （开发中）</span></p><p><img src=".\assets\image-20200614082042661.png" referrerpolicy="no-referrer" alt="image-20200614082042661"><span>详细模式 —— （开发中）</span></p><p><img src=".\assets\image-20200614082136809.png" referrerpolicy="no-referrer" alt="image-20200614082136809"><span>显示适配 —— 切换内容宽屏和窄屏（默认）显示</span></p><p><img src=".\assets\image-20200614082223090.png" referrerpolicy="no-referrer" alt="image-20200614082223090"><span>Live2D —— 能显示和隐藏网站上的Live2D人物</span></p><p><img src=".\assets\image-20200614082341074.png" referrerpolicy="no-referrer" alt="image-20200614082341074"><span>收藏本站 —— 把网站添加到浏览器收藏夹中</span></p><p><img src=".\assets\image-20200614074418022.png" referrerpolicy="no-referrer" alt="image-20200614074418022"><span>分享本站 —— 快速复制本站的分享链接（入口为网站文档）</span></p><p><img src=".\assets\image-20200614074349096.png" referrerpolicy="no-referrer" alt="image-20200614074349096"><span>使用指南 —— 打开网站文档（即本页面）</span></p><h3><a name="下方文字栏" class="md-header-anchor"></a><span>下方文字栏</span></h3><p><span>提供一些信息：</span></p><ul><li><span>网站备案。应中国互联网备案要求，网站必须在底部声明备案号，并能跳转至中华人民共和国工业和信息化部ICP/IP地址/域名信息备案管理系统</span></li><li><span>加群交流。您可以加入本站的用户体验及反馈交流&amp;&amp;平时没事扯淡群，也可以加群和大家一起扩充网站内容</span></li><li><span>捐款助力开发者。开发与维护实属不易，支持支付宝和微信付款</span></li><li><span>官网首页。进入官网</span></li><li><span>带双引号的是随机句子。每次进入网站时显示的句子都不同哟~</span></li></ul><h2><a name="简易模式" class="md-header-anchor"></a><span>简易模式</span></h2><p><span>简洁模式，为您提供最简洁的导航服务（占用资源低）。</span></p><p><img src=".\assets\image-20200616110947086.png" referrerpolicy="no-referrer" alt="image-20200616110947086"></p><p><img src=".\assets\image-20200616105558066.png" referrerpolicy="no-referrer" alt="image-20200616105558066"></p><p><span>主功能搜索栏功能详见 </span><a href='#使用教程'><span>使用教程</span></a><span> 部分，此处不再赘述</span></p><p><span>搜索栏下方为快速切换，可以代替顶部状态栏的切换功能，位置的点击更加顺手。</span></p><p><span>两个圆状的加号和减号按钮分别是添加和删除快捷方式。</span></p><p><img src=".\assets\image-20200616110259809.png" referrerpolicy="no-referrer" alt="image-20200616110259809"><span>.</span></p><p><span>你可以自由自定义您所需要的快捷方式</span></p><p><span>添加快捷方式应注意：</span></p><ul><li><p><span>网站url需为完整路径，即要加http://或https://协议头。</span></p></li><li><p><span>查询url，用来提供搜索栏锁存模式查询的方法，让你可以直接进入到网站内部搜索。</span></p><p><span>其网站查询url的获取方法，详见后台手册。</span></p></li><li><p><span>自定义图标，可填网站内部已资源的图片，也可为网页链接的图标。</span></p><p><span>若不填则尝试自动寻找图标，但这有一定几率会失败，然后显示默认图标。</span></p><p><span>寻找网站图标链接的方法详见后台手册。</span></p></li></ul><p><span>其他注意事项：</span></p><ul><li><p><span>该网站并不会限制你添加快捷访问方式的数量</span></p></li><li><p><span>暂不支持拖拽/其他方式修改顺序（开发中）</span></p></li><li><p><span>网站使用的是免登录策略，这意味着你不需要登录即可添加快捷方式。</span></p><p><span>但同样的，您所保存的快捷方式并不会存储在云端，不同设备或浏览器之间并不会同步。</span></p><p><span>而清除浏览器缓存有可能会导致您保存的快捷方式被清空。</span></p></li></ul><p><img src=".\assets\image-20200616105619513.png" referrerpolicy="no-referrer" alt="image-20200616105619513"><span>.</span></p><h2><a name="网站模式" class="md-header-anchor"></a><span>网站模式</span></h2><h3><a name="普通状态" class="md-header-anchor"></a><span>普通状态</span></h3><p><img src=".\assets\image-20200614093046085.png" referrerpolicy="no-referrer" alt="image-20200614093046085"></p><h3><a name="大陆优化" class="md-header-anchor"></a><span>大陆优化</span></h3><p><span>如果您在中国大陆，可从顶部状态栏中切换网络状态，即可屏蔽掉无法访问的网站</span></p><p><span>如果您身居海外或位于港澳等第，又或是您所在公司正式申请并得到电信部国际联网许可，可放心使用</span></p><p><strong><span>【免责声明】本站不协助或提供任何vpn等翻墙工具，若有特殊需求，请勿打扰！</span></strong></p><p><img src=".\assets\image-20200614093159772.png" referrerpolicy="no-referrer" alt="image-20200614093159772"></p><h3><a name="适配模式" class="md-header-anchor"></a><span>适配模式</span></h3><p><span>若您希望显示的内容能更多些，点击右侧菜单栏</span><img src=".\assets\image-20200614082136809.png" referrerpolicy="no-referrer" alt="image-20200614082136809"><span>按钮，以自动填满</span></p><p><span>又或者您的显示器较小，无法显示所有内容，也可通过该适配模式进行解决</span></p><p><img src=".\assets\image-20200614093106187.png" referrerpolicy="no-referrer" alt="image-20200614093106187"></p><h3><a name="网页块说明" class="md-header-anchor"></a><span>网页块说明</span></h3><p><span>标签说明</span></p><ul><li><span>左上：网站所需联网情况：即中国大陆是否能够访问</span></li><li><span>右上：网站标签</span></li><li><span>左下：网站语言。语言表：</span></li></ul><figure><table><thead><tr><th><span>语言简写</span></th><th><span>名称</span></th></tr></thead><tbody><tr><td><span>zh</span></td><td><span>中文（默认不显示）</span></td></tr><tr><td><span>en</span></td><td><span>英语</span></td></tr><tr><td><span>mul</span></td><td><span>多重（网站内可切换多重语言，但必须包括中文）</span></td></tr><tr><td><span>jp</span></td><td><span>日语</span></td></tr><tr><td><span>kor</span></td><td><span>韩语</span></td></tr><tr><td><span>fra</span></td><td><span>法语</span></td></tr><tr><td><span>ru</span></td><td><span>俄语</span></td></tr></tbody></table></figure><ul><li><span>右下：点击量。无论你是点击进入，还是在搜索栏中快捷进入，都会增加点击量</span></li></ul><h2><a name="b站模式" class="md-header-anchor"></a><span>B站模式</span></h2><h3><a name="普通状态-n478" class="md-header-anchor"></a><span>普通状态</span></h3><p><img src=".\assets\image-20200614094835497.png" referrerpolicy="no-referrer" alt="image-20200614094835497"></p><h3><a name="适配状态" class="md-header-anchor"></a><span>适配状态</span></h3><p><span>若您希望显示的内容能更多些，点击右侧菜单栏</span><img src=".\assets\image-20200614082136809.png" referrerpolicy="no-referrer" alt="image-20200614082136809"><span>按钮，以自动填满</span></p><p><span>又或者您的显示器较小，无法显示所有内容，也可通过该适配模式进行解决</span></p><p><img src=".\assets\image-20200614094908978.png" referrerpolicy="no-referrer" alt="image-20200614094908978"></p><h2><a name="其他" class="md-header-anchor"></a><span>其他</span></h2><h3><a name="live2d" class="md-header-anchor"></a><span>Live2D</span></h3><p><span>让你在一日工作之余能够有所放松，支持鼠标跟踪、点击语音发声。</span></p><p><span>默认情况下从简易模式进入本站不会自动渲染Live2D，从其他入口进入本站则自动渲染。</span></p><p><span>如果您觉得打扰到您的话也可以点击右侧的Live2D显示关闭按钮</span><img src=".\assets\image-20200614082223090.png" referrerpolicy="no-referrer" alt="image-20200614082223090"></p><p><img src=".\assets\image-20200614105128663.png" referrerpolicy="no-referrer" alt="image-20200614105128663"><span> 默认人物为Haru。其他Live2D人物及其动态切换功能（开发中）</span></p><h3><a name="浏览器的配合优化" class="md-header-anchor"></a><span>浏览器的配合优化</span></h3><h4><a name="浏览器扩展插件搭档" class="md-header-anchor"></a><span>浏览器扩展/插件搭档</span></h4><h4><a name="加入网页到浏览器首页" class="md-header-anchor"></a><span>加入网页到浏览器首页</span></h4><h4><a name="加入网页到新增标签页" class="md-header-anchor"></a><span>加入网页到新增标签页</span></h4><h3><a name="网站理念与闲话" class="md-header-anchor"></a><span>网站理念与闲话</span></h3><h4><a name="站长de闲话" class="md-header-anchor"></a><span>站长de闲话</span></h4><p><span>		</span><span>大家好，首先是感谢诸位选择使用该导航网站，感谢诸位访客对该导航网站的热爱与慷慨支持。</span></p><p><span>		</span><span>这里是LcNav的站长，编程圈网名 Linc ，或全称 LincZero（为什么说编程圈，当然是因为我在每个圈子的网名不一样啦===）。</span></p><p><span>		</span><span>该导航网站为我个人独立开发，从设计、开发到运营。使用免费、项目在GitHub进行开源。实属不易，希望大家喜欢该网站的朋友，能够在GitHub中给我个Star，或在网站下方的赞助作者中，给予作者一定的支持。（啊啊啊啊，维护服务器也要不菲的资金的，站长我快吃土了呜呜呜www，各位大侠救救孩子吧QAQ~~~突然不正经hhh）</span></p><p>&nbsp;</p><p>&nbsp;</p><p><span>		</span><span>开发导航网站</span></p><p>&nbsp;</p><p><span>		</span><span>该导航网站是在我旧导航网站的基础上，重新开发完成。旧导航网站给你们看看。</span></p><p><img src=".\assets\image-20200615084110315.png" referrerpolicy="no-referrer" alt="image-20200615084110315"></p><p><span>		</span><span>旧网站大概在2020.1月多的时候开发完成上线，然后又陆续更新维护了一个多月，现在我已经停止维护。新导航网站预期为2020.6.18上线，也就是时隔半年，网站重做的样子。</span></p><p><span>		</span><span>旧网站也是单页面应用程序，但也就是单纯的html、css、javascript。时隔半年......技术层面上新导航网站使用了流行的Vue框架、SPA单页面富应用开发流程，Nodejs后端与数据库管理数据、css预编译语言，数据源使用了Python爬虫爬取。在交互层面上，我为新网站灌输了一些全新的个人理念。这使得新网站拥有了截然不同的交互方式，使用变得更加快速便捷、功能强大。</span></p><p><span>		</span><span>不过，该导航网站可能有诸多地方还有待优化，也可能有诸多纰漏。另一方面，因为工期较赶，很多我在设计时预想的功能也还没来得及做出来。而这些开发到的预期功能我也会在后续中抽空慢慢进行补全，不便之处希望诸位谅解。</span></p><p><span>		</span><span>那些还没来得及开发出来的新功能，这里就不说了，留个悬念。下面是网站项目设计稿（思维导图软件XMind，版本Zen），坐下角紫色的部分是功能区的ListToDo部分，那些绿色图标标记的即已完成功能，其他则为未完成功能。给我自己留的坑倒是挺多的......不一定所有功能都能按预期开发出来，我后续也可能没有那么多精力了，各种事也挺忙的，只能说尽力而为吧。</span></p><p><img src=".\assets\image-20200615081452809.png" referrerpolicy="no-referrer" alt="image-20200615081452809"></p><h4><a name="搜索框理念" class="md-header-anchor"></a><span>搜索框理念</span></h4><p><span>说搜索框理念之前，先来说一下简易模式的理念。现在导航网站基本上，</span></p><p><span>很多人只会在必要的时候使用导航网站，臃肿</span></p><p><img src=".\assets\image-20200615141635595.png" referrerpolicy="no-referrer" alt="image-20200615141635595"></p><p><img src=".\assets\image-20200615090512727.png" referrerpolicy="no-referrer" alt="image-20200615090512727"></p><p><img src=".\assets\image-20200615090517502.png" referrerpolicy="no-referrer" alt="image-20200615090517502"><span>.</span></p><p><span>理念为快捷</span></p><p><span>受到了Linux的命令行的影响，在搜索框中使用指令</span></p><h4><a name="平台分类代理理念" class="md-header-anchor"></a><span>平台分类代理理念</span></h4><h4><a name="其他理念" class="md-header-anchor"></a><span>其他理念</span></h4><h2><a name="后台手册" class="md-header-anchor"></a><span>后台手册</span></h2><p><span>开发中</span></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div>
+</body>
+</html>

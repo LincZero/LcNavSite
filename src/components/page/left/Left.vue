@@ -1,5 +1,5 @@
 <template>
-  <div id="navmenu" v-show="display">
+  <div id="navmenu">
     <el-menu
       default-active="1-4-1"
       class="el-menu-vertical-demo"
@@ -43,11 +43,6 @@
 
 <script>
 export default {
-  computed: {
-    display() {
-      return this.$route.name!='Home'
-    }
-  },
   methods: {
     handleOpen(key, keyPath) {
       this.$store.commit("fm_cg_left");

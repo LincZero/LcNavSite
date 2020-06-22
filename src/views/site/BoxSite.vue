@@ -1,9 +1,9 @@
 <template>
   <div class="box_site" v-if="$store.state.abroad || !item.abroad">
     <div class="relative">
-      <button @click="SiteClick(item.id)">
+      <button @click="SiteClick(item.id,item.href)">
         <div class="static">
-          <img :src="img" onerror="this.src='img/Null.ico'" alt="Error" />
+          <img v-lazy="img" alt="Error" />
           <p>{{item.webName}}</p>
         </div>
         <div class="tag lt" v-if="item.abroad">
@@ -12,10 +12,10 @@
         <div class="tag rt" v-if="item.tag">
           <p>{{item.tag}}</p>
         </div>
-        <div class="tag lb" v-if="item.lang!='zh'">
+        <div class="tag lb" v-if="item.lang!='zh'&&item.lang">
           <p>{{item.lang}}</p>
         </div>
-        <div class="tag rb">
+        <div class="tag rb" v-if="item.clickRate">
           <p>{{item.clickRate}}</p>
         </div>
       </button>
@@ -33,12 +33,14 @@ export default {
   },
   computed: {
     img() {
-      return this.item.favicon ? this.item.favicon : findFavicon(this.item.href);
+      return this.item.favicon
+        ? this.item.favicon
+        : findFavicon(this.item.href);
     }
   },
   methods: {
-    SiteClick(id) {
-      if (true) {
+    SiteClick(id, href) {
+      if (href) {
         // Search IS NULL
         console.log(id);
         request({

@@ -1,7 +1,7 @@
 <template>
   <div id="header">
     <div class="left">
-      <LeftHandle></LeftHandle>
+      <LeftHandle v-if="$route.name!=='Home'"></LeftHandle>
     </div>
     <div class="mid">
       <div style="float:right;margin:0 10px">

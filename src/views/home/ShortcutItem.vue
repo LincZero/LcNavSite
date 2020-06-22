@@ -1,7 +1,7 @@
 <template>
   <div class="shortcutItem">
     <button :title="item.webName">
-      <img :src="src" onerror="this.src='img/Null.ico'" alt="Error" />
+      <img v-lazy="img" alt="Error" />
     </button>
     <p>{{item.webName}}</p>
     <div class="delete" v-if="editAble">
@@ -22,7 +22,7 @@ export default {
     editAble: Boolean
   },
   computed: {
-    src() {
+    img() {
       return this.item.favicon ? this.item.favicon : findFavicon(this.item.href);
     }
   },

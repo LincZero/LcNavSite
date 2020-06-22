@@ -2,7 +2,7 @@
   <div class="box_bili">
     <button>
       <div class="img">
-        <img :src="item.pic" alt="Error" />
+        <img v-lazy="item.pic" alt="Error" />
         <div class="tag">
           <div>
             <i class="el-icon-finished"></i>
@@ -54,9 +54,11 @@ export default {
     position: relative;
     height: 116px;
     width: 206px;
-    img {
-      height: 100%;
-      width: 100%;
+    img { // 等比例缩放
+      height: auto;
+      width: auto;
+      max-width: 100%;
+      max-height: 100%;
     }
     .tag {
       position: absolute;

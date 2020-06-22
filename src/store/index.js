@@ -9,8 +9,12 @@ export default new Vuex.Store({
     // easy: false, // 简易模式 - 界面 // 用!$route.name==='Home'判断吧
     left: false, // 左侧栏模式 - 界面
     right: true, // 右侧栏模式 - 界面
-    thin: true, // 窄内容模式 - 界面
     live2d: true, // Live2d - 界面
+
+    drawerSite: false, //抽屉 - 界面 // 有可能是强行赋值更新
+
+    thin: true, // 窄内容模式 - 内容块
+    typekind: 'type', // 分类模式 - 内容块
 
     abroad: true, // 国外模式 - 内容
     safe: false, // 内鬼模式 - 内容-导航项
@@ -19,7 +23,7 @@ export default new Vuex.Store({
     input: '', // 输入栏内容
     inputLock: null, // Tab模式输入栏
     mode: '', // 路由模式 - 状态
-    siteDb: siteDbPromise() // 网站集数据，Promise对象
+    siteDb: siteDbPromise // 网站集数据，Promise对象
   },
   mutations: {
     fm_cg_abroad(state, abroad) {
@@ -34,8 +38,15 @@ export default new Vuex.Store({
     fm_cg_thin(state) {
       state.thin = !state.thin
     },
-    fm_cg_live2d(state) {
-      state.live2d = !state.live2d
+    fm_cg_typekind(state) {
+      state.typekind = state.typekind === "type" ? "kind" : "type"
+    },
+    fm_cg_live2d(state, bool) {
+      if (bool !== undefined) {
+        state.live2d = bool
+      } else { // 不传参则取反
+        state.live2d = !state.live2d
+      }
     },
     fm_cg_siteDb(state, data) {
       state.siteDb = data

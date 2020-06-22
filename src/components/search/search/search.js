@@ -1,5 +1,4 @@
 import store from '@/store/index.js'
-import siteDbPromise from "@/network/home.js"
 
 import {
   request
@@ -49,7 +48,7 @@ export default function search(input, _this) {
       break;
 
     default: // 在数据库Promise对象中匹配带指令的网站
-      siteDbPromise().then(res => {
+    _this.$store.state.siteDb.then(res => {
         let url = null
         for (let item of res) {
           if (reCommand === item.command) {

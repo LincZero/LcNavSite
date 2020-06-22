@@ -2,7 +2,7 @@
   <!--With Async SuggestDisplay-->
   <div
     @keydown="handleKey($event)"
-    :class="{'searchAsync':true,'home':true,'tab':this.$store.state.inputLock}"
+    :class="{'searchAsync':true,'home':true,'tab':$store.state.inputLock}"
   >
     <el-autocomplete
       style="width:850px"
@@ -18,7 +18,7 @@
     >
       <template slot-scope="{ item }">
         <div class="left">
-          <img :src="item.favicon" alt="Erroe" />
+          <img v-lazy="item.favicon" alt="Erroe" />
         </div>
         <div class="right">
           <div>{{ item.value }}</div>
@@ -32,7 +32,6 @@
 <script>
 import { request } from "@/network/request";
 import searchEvent from "@/components/search/search/searchEvent.js";
-import siteDbPromise from "@/network/home.js";
 // import findFavicon from "@/common/findFavicon.js";
 export default {
   name: "SearchAsync",
@@ -102,7 +101,7 @@ export default {
   },
   mounted() {
     this.$refs.homeSearch.$el.children[0].children[0].focus(); // 手动聚焦
-    siteDbPromise().then(res => {
+    this.$store.state.siteDb.then(res => {
       // 拿到异步数据库对象
       if (!this.$store.state.abroad) {
         // 有BUG，这里的if并没有作用，初始时这里使用的是初始的abroad数据

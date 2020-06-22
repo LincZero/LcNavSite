@@ -6,7 +6,7 @@
       </div>
     </div>
     <div v-show="$store.state.right">
-      <div>
+      <!-- <div>
         <el-button icon="el-icon-user-solid" circle data-title="登录" />
       </div>
       <div>
@@ -23,6 +23,9 @@
       </div>
       <div>
         <el-button icon="el-icon-menu" circle data-title="详细模式" />
+      </div> -->
+      <div>
+        <el-button icon="el-icon-refresh" circle data-title="切换类型" @click="fn_cg_typekind" />
       </div>
       <div>
         <el-button icon="el-icon-monitor" circle data-title="显示适配" @click="fn_cg_thin" />
@@ -37,7 +40,7 @@
         <el-button icon="el-icon-share" circle data-title="分享本站" @click="copyShare" />
       </div>
       <div>
-        <el-button icon="el-icon-warning" circle data-title="使用指南" />
+        <el-button icon="el-icon-warning" circle data-title="使用指南" @click="window.open('http://nav.lingchu.xyz/readme')" />
       </div>
     </div>
   </div>
@@ -59,7 +62,7 @@ function copyText(text, callback) {
 }
 let shareStr = `lcNav | 创作者导航 ；\n
 界面简易且功能强大，超好用的便捷导航 ；\n
-点击网址访问：http://nav.lingchu.xyz`;
+点击网址访问：http://www.lingchu.xyz/readme`;
 export default {
   computed: {
     handleIcon() {
@@ -83,6 +86,9 @@ export default {
         "data-thin",
         this.$store.state.thin
       );
+    },
+    fn_cg_typekind() {
+      this.$store.commit("fm_cg_typekind");
     },
     fn_cg_live2d() {
       this.$store.commit("fm_cg_live2d");
@@ -141,7 +147,7 @@ export default {
 
 <style lang="scss">
 #live2d-widget {
-  @include live2d-widget();
+  @include live2d-widget(); // 取巧地使用html属性来影响其显示隐藏
 }
 // $header-hei
 #right {

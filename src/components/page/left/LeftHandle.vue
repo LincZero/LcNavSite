@@ -1,5 +1,5 @@
 <template>
-  <div id="lefthandle" v-show="display">
+  <div id="lefthandle">
     <el-button
       style="width:65px"
       :icon="icon"
@@ -11,17 +11,10 @@
 
 <script>
 export default {
-  data() {
-    return {
-    }
-  },
   computed: {
     icon() {
       return this.$store.state.left?"el-icon-d-arrow-left":"el-icon-d-arrow-right"
     },
-    display() {
-      return this.$route.name!='Home'
-    }
   },
   methods: {
     fn_cg_left() {
