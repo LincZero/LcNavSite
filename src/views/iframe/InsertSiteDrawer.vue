@@ -42,7 +42,9 @@
           <option value="_develop">程序开发</option>
           <option value="_web">网页开发</option>
           <option value="_game">游戏开发</option>
+          <option value="_science">自然科学</option>
           <option value="_live">生活类</option>
+          <option value="_play">娱乐类</option>
           <option value="_other">其他</option>
         </select>
       </li>
@@ -51,7 +53,8 @@
         <select v-model="submitData.webKind">
           <option value="api">官方手册</option>
           <option value="tool">在线工具</option>
-          <option value="official">软件官网</option>
+          <option value="official">软件/组织官网</option>
+          <option value="serve">服务平台</option>
           <option value="engine">搜索引擎</option>
           <option value="bbs">博客论坛</option>
           <option value="gallery">作品库/画廊</option>
@@ -137,24 +140,25 @@ export default {
   data() {
     return {
       submitData: {
-        up: '',
-        webName: '',
-        href: '',
-        webType: '',
-        webKind: '',
-        lang: '',
+        // 不能为NULL，不然后端那边很麻烦（不传、又不能给数据类型赋值NULL）
+        up: "",
+        webName: "",
+        href: "",
+        webType: "",
+        webKind: "",
+        lang: "",
         // 非必填
-        favicon: '',
-        hrefSlash: '',
-        detail: '',
-        tag: '',
-        cost: '',
+        favicon: "",
+        hrefSlash: "",
+        detail: "",
+        tag: "",
+        cost: "",
         abroad: 0,
         // 游客禁填
-        command: '',
+        command: "",
         ban: 0,
         // 非数据库
-        password: ''
+        password: ""
       }
     };
   },
@@ -182,21 +186,26 @@ export default {
     },
     clear() {
       for (let i in this.submitData) {
-        if (i === "abroad" || i === "ban") {
-          this.submitData[i] = 0;
-        } else {
-          this.submitData[i] = null;
+        if (i !== "up" && i !== "password") {
+          if (i === "abroad" || i === "ban") {
+            this.submitData[i] = 0;
+          } else {
+            this.submitData[i] = "";
+          }
         }
       }
-      this.password = null;
+      this.password = "";
     },
     submit() {
-      submitSite(this.submitData, this)
-      .then((res) => {
-        console.log(res.data,typeof(res.data))
-        if(res.data==='success') {
-          this.$message.success('提交成功');
-          console.log('222')
+      submitSite(this.submitData, this).then(res => {
+        let resdata = res.data;
+        console.log(resdata, typeof resdata);
+        if (resdata === "success") {
+          this.$message.success("提交成功");
+        } else if (resdata === "user err") {
+          this.$message.error("账号或密码失败");
+        } else {
+          this.$message.error("提交失败");
         }
       });
     }

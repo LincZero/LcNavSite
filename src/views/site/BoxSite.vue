@@ -1,7 +1,7 @@
 <template>
   <div class="box_site" v-if="$store.state.abroad || !item.abroad">
     <div class="relative">
-      <button @click="SiteClick(item.id,item.href)">
+      <button @click="SiteClick(item.id,item.href)" :title="item.detail">
         <div class="static">
           <img v-lazy="img" alt="Error" />
           <p>{{item.webName}}</p>

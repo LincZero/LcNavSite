@@ -29,16 +29,6 @@ const routes = [
     name: 'NavBili',
     component: () => import('@/views/bili/NavBili.vue')
   },
-  {
-    path: '/api',
-    name: 'NavApi',
-    component: () => import('@/views/api/NavApi.vue')
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: () => import('@/views/page/About.vue')
-  }
 ]
 
 const router = new VueRouter({

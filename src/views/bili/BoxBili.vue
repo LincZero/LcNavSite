@@ -1,6 +1,6 @@
 <template>
   <div class="box_bili">
-    <button>
+    <button @click="openurl">
       <div class="img">
         <img v-lazy="item.pic" alt="Error" />
         <div class="tag">
@@ -36,6 +36,11 @@ export default {
   name: "Box_Bili",
   props: {
     item: Object
+  },
+  methods: {
+    openurl() {
+      window.open("https://www.bilibili.com/video/av" + this.item.av);
+    }
   }
 };
 </script>
@@ -54,7 +59,8 @@ export default {
     position: relative;
     height: 116px;
     width: 206px;
-    img { // 等比例缩放
+    img {
+      // 等比例缩放
       height: auto;
       width: auto;
       max-width: 100%;

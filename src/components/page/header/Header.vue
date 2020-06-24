@@ -24,11 +24,8 @@
       <li>
         <router-link to="/bili" replace>B站模式</router-link>
       </li>
-      <li>
-        <router-link to="/api" replace>手册模式</router-link>
-      </li>
-      <li>
-        <router-link to="/about" replace>网站指南</router-link>
+      <li @click="readme">
+        <a>网站指南</a>
       </li>
     </div>
   </div>
@@ -43,6 +40,11 @@ export default {
     SearchAsync: () =>
       import("@/components/search/autocomplete/SearchAsync.vue"),
     HeaderSwitch: () => import("./HeaderSwitch")
+  },
+  methods: {
+    readme() {
+      window.open("http://www.lingchu.xyz/readme");
+    }
   }
 };
 </script>

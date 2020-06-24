@@ -51,14 +51,17 @@ let webTypeData = [
   { label: "程序开发", tk: "_develop" },
   { label: "网页开发", tk: "_web" },
   { label: "游戏开发", tk: "_game" },
+  { label: "自然科学", tk: "_science" },
   { label: "通用", tk: "_all" },
   { label: "生活类", tk: "_live" },
+  { label: "娱乐类", tk: "_play" },
   { label: "其他", tk: "_other" }
 ];
 let webKindData = [
   { label: "官方手册", tk: "api" },
   { label: "在线工具", tk: "tool" },
   { label: "软件/组织官网", tk: "official" },
+  { label: "服务平台", tk: "serve" },
   { label: "搜索引擎", tk: "engine" },
   { label: "博客论坛", tk: "bbs" },
   { label: "作品库/画廊", tk: "gallery" },

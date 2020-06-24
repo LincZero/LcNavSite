@@ -13,6 +13,11 @@ export default function submitSite(submitData, _this) {
       params: submitData
     })
   } else {
-    _this.$message.error('请输入正确的账户和密码');
+    _this.$message.info('正在提交...');
+    return request({
+      url: "/nav/site/insert",
+      params: submitData
+    })
+    // _this.$message.error('请输入正确的账户和密码');
   }
 }

@@ -23,7 +23,7 @@
       </div>
       <div>
         <el-button icon="el-icon-menu" circle data-title="详细模式" />
-      </div> -->
+      </div>-->
       <div>
         <el-button icon="el-icon-refresh" circle data-title="切换类型" @click="fn_cg_typekind" />
       </div>
@@ -40,7 +40,7 @@
         <el-button icon="el-icon-share" circle data-title="分享本站" @click="copyShare" />
       </div>
       <div>
-        <el-button icon="el-icon-warning" circle data-title="使用指南" @click="window.open('http://nav.lingchu.xyz/readme')" />
+        <el-button icon="el-icon-warning" circle data-title="使用指南" @click="readme" />
       </div>
     </div>
   </div>
@@ -71,9 +71,7 @@ export default {
         : "el-icon-caret-bottom";
     },
     handleTitle() {
-      return this.$store.state.right
-        ? "折叠"
-        : "展开";
+      return this.$store.state.right ? "折叠" : "展开";
     }
   },
   methods: {
@@ -117,10 +115,13 @@ export default {
           duration: 3500
         });
       });
+    },
+    readme() {
+      window.open("http://www.lingchu.xyz/readme");
     }
   },
   created() {
-    this.$store.commit("fm_cg_right", this.$route.name!='Home');
+    this.$store.commit("fm_cg_right", this.$route.name != "Home");
   },
   mounted() {
     if (this.$store.state.live2d === true && this.$route.name != "Home") {
