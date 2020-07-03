@@ -23,11 +23,25 @@ export default new Vuex.Store({
     input: '', // 输入栏内容
     inputLock: null, // Tab模式输入栏
     mode: '', // 路由模式 - 状态
-    siteDb: siteDbPromise // 网站集数据，Promise对象
+    siteDb: siteDbPromise, // 网站集数据，Promise对象
+    // siteDb2: siteDbPromise // 国内网站集数据，暂存以防止反复循环
   },
   mutations: {
     fm_cg_abroad(state, abroad) {
       state.abroad = abroad
+      // 同时重置更新Promise对象
+      if (abroad) {
+        state.siteDb = siteDbPromise
+      } else {
+        state.siteDb = siteDbPromise.then(res => {
+          let resnew = res.filter(item => {
+            return item.abroad===0
+          })
+          return new Promise((resolve, reject) => {
+            resolve(resnew)
+          })
+        })
+      }
     },
     fm_cg_left(state) {
       state.left = !state.left

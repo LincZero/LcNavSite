@@ -17,6 +17,7 @@
 </template>
 
 <script>
+// import h from "@/network/home.js"; // 
 import checkNet from "@/network/checkNet.js";
 export default {
   data() {

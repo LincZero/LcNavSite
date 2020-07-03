@@ -22,7 +22,7 @@
         <router-link to="/site" replace>网站模式</router-link>
       </li>
       <li>
-        <router-link to="/bili" replace>B站模式</router-link>
+        <router-link :to="'/bili/'+'3D'" replace>B站模式</router-link>
       </li>
       <li @click="readme">
         <a>网站指南</a>

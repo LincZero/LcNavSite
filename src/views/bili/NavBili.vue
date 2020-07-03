@@ -28,12 +28,14 @@ let biliData = [
   { label: "MD", tk: "MD" },
   { label: "SD", tk: "SD" },
   { label: "SP", tk: "SP" },
-  { label: "八猴", tk: "Marmoset" },
-  { label: "渲染器", tk: "Render" },
+  { label: "Marmoset", tk: "Marmoset" },
+  { label: "Render", tk: "Render" },
   { label: "UE4", tk: "UE4" },
   { label: "Unity", tk: "Unity" },
   { label: "手办", tk: "Shouban" },
-  { label: "其他", tk: "Other" }
+  { label: "Draw", tk: "Draw" },
+  { label: "Math", tk: "Math" },
+  { label: "Other", tk: "Other" }
 ];
 import { request } from "@/network/request.js";
 export default {

@@ -2,14 +2,14 @@
   <div id="app">
     <Header></Header>
     <MidV>
-      <Left v-if="$route.name!=='Home'" style="margin-right:20px"></Left>
-      <MidH style="flex:1">
+      <Left v-if="$route.name!=='Home'"></Left>
+      <MidH style="flex:1;margin:0 20px 0 30px">
         <div style="height:30px;"></div>
         <keep-alive>
           <router-view />
         </keep-alive>
       </MidH>
-      <Right style="margin-left:20px"></Right>
+      <Right></Right>
     </MidV>
     <Footer></Footer>
   </div>

@@ -25,7 +25,7 @@ const routes = [
     component: () => import('@/views/site/NavSite.vue')
   },
   {
-    path: '/bili',
+    path: '/bili/:userId',
     name: 'NavBili',
     component: () => import('@/views/bili/NavBili.vue')
   },

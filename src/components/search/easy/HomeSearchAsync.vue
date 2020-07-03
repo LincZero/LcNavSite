@@ -32,12 +32,11 @@
 <script>
 import { request } from "@/network/request";
 import searchEvent from "@/components/search/search/searchEvent.js";
-// import findFavicon from "@/common/findFavicon.js";
 export default {
-  name: "SearchAsync",
+  name: "HomeSearchAsync",
   data() {
     return {
-      restaurants: [],
+      restaurants: [], // 存储过滤的数据
       state: "",
       timeout: null,
       allowKey: true
@@ -47,9 +46,17 @@ export default {
     placeholder() {
       return this.$store.state.abroad ? "谷歌搜索" : "百度搜索";
     },
-    // img(item2) {
-    //   return item2.favicon ? item2.favicon : findFavicon(item2.href);
-    // }
+    siteDb() {
+      return this.$store.state.siteDb;
+    }
+  },
+  watch: {
+    // siteDb会被abroad重置，从而重置这里的备选项目
+    siteDb(val) {
+      val.then(res => {
+        this.restaurants = res;
+      });
+    }
   },
   methods: {
     querySearchAsync(queryString, cb) {
@@ -67,7 +74,6 @@ export default {
         );
       };
     },
-
     handleSelect(item) {
       this.allowKey = false; // 阻止回车搜索
       request({
@@ -95,22 +101,16 @@ export default {
           this.$refs.homeSearch.$el.children[0].children[0].focus();
         }, 150); // 这里的重新聚焦有点问题，Tab默认会跳转到下一个表单元素中，如果不延迟会聚焦失败
       } else {
+        // 若回车选择网站，则锁按键并进入按键事件进行解锁
         this.allowKey = true;
       }
     }
   },
   mounted() {
     this.$refs.homeSearch.$el.children[0].children[0].focus(); // 手动聚焦
-    this.$store.state.siteDb.then(res => {
+    this.siteDb.then(res => {
       // 拿到异步数据库对象
-      if (!this.$store.state.abroad) {
-        // 有BUG，这里的if并没有作用，初始时这里使用的是初始的abroad数据
-        this.restaurants = res.filter(item => {
-          return !item.abroad;
-        });
-      } else { // 若回车选择网站，则锁按键并进入按键事件进行解锁
-        this.restaurants = res;
-      }
+      this.restaurants = res
     });
   }
 };
@@ -119,30 +119,32 @@ export default {
 <style lang="scss">
 .autocomplete {
   // popper-class才是定义class的，class是其他作用
-  li {
-    line-height: normal;
-    padding: 7px;
-    display: flex;
-    .left {
-      margin-right: 8px;
-      img {
-        height: 28px;
-        width: 28px;
+  ul {
+    li {
+      line-height: normal;
+      padding: 7px;
+      display: flex;
+      .left {
+        margin-right: 8px;
+        img {
+          height: 28px;
+          width: 28px;
+        }
       }
-    }
-    .right {
-      width: auto;
-      overflow: hidden;
-      div {
-        text-overflow: ellipsis;
+      .right {
+        width: auto;
         overflow: hidden;
-      }
-      span {
-        font-size: 12px;
-        color: #b4b4b4;
-      }
-      .highlighted .span {
-        color: #ddd;
+        div {
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+        span {
+          font-size: 12px;
+          color: #b4b4b4;
+        }
+        .highlighted .span {
+          color: #ddd;
+        }
       }
     }
   }
