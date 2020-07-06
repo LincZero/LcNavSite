@@ -10,7 +10,7 @@
 
 导航网站 http://www.lingchu.xyz/#/home
 
-网站指南 http://www.lingchu.xyz/#/home
+网站指南 http://www.lingchu.xyz/readme
 
 
 
