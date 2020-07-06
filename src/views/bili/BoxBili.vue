@@ -52,19 +52,26 @@ export default {
   overflow: hidden;
   height: 190px;
   width: 206px;
-  background-color: #ffffff;
+  background-color: #fff;
   float: left;
   margin: 5px;
+  button {
+    background-color: #fff;
+  }
   .img {
     position: relative;
     height: 116px;
     width: 206px;
+    overflow: hidden;
     img {
-      // 等比例缩放
+      /* 等比例缩放 */
       height: auto;
       width: auto;
       max-width: 100%;
-      max-height: 100%;
+      // max-height: 100%;
+      /* 直接压缩 */
+      // height: 100%;
+      // width: 100%;
     }
     .tag {
       position: absolute;

@@ -62,7 +62,7 @@ export default {
   data() {
     return {
       textData: null,
-      diy: {},
+      diy: [],
       diyWindow: false,
       editAble: false,
       toolSetShow: false
@@ -86,7 +86,7 @@ export default {
     //   }
     // },
     addDiy(newData) {
-      this.diy ? this.diy.push(newData) : (this.diy = [newData]);
+      this.diy.push(newData); // ?:改，空数组为true
       localStorage.setItem("diySite", JSON.stringify(this.diy));
       this.diyWindow = false;
     },
@@ -94,7 +94,7 @@ export default {
       this.diyWindow = false;
     },
     deleteDiy(index) {
-      this.diy ? this.diy.splice(index, 1) : {};
+      this.diy.splice(index, 1);
       localStorage.setItem("diySite", JSON.stringify(this.diy));
     }
   },

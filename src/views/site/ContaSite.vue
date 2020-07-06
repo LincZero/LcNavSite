@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import { request } from "@/network/request";
 export default {
   name: "ContaSite",
   components: {

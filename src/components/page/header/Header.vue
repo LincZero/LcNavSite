@@ -1,7 +1,7 @@
 <template>
   <div id="header">
     <div class="left">
-      <LeftHandle v-if="$route.name!=='Home'"></LeftHandle>
+      <LeftHandle v-if="$route.name==='NavBili'"></LeftHandle>
     </div>
     <div class="mid">
       <div style="float:right;margin:0 10px">
@@ -22,7 +22,7 @@
         <router-link to="/site" replace>网站模式</router-link>
       </li>
       <li>
-        <router-link :to="'/bili/'+'3D'" replace>B站模式</router-link>
+        <router-link :to="'/bili/'+'Plane-Default'" :class="{'router-link-active':biliActive}" replace>B站模式</router-link>
       </li>
       <li @click="readme">
         <a>网站指南</a>
@@ -40,6 +40,11 @@ export default {
     SearchAsync: () =>
       import("@/components/search/autocomplete/SearchAsync.vue"),
     HeaderSwitch: () => import("./HeaderSwitch")
+  },
+  computed: {
+    biliActive() {
+      return this.$route.matched[0].path==="/bili/:type"
+    }
   },
   methods: {
     readme() {

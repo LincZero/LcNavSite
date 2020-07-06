@@ -120,9 +120,9 @@ export default {
       window.open("http://www.lingchu.xyz/readme");
     }
   },
-  created() {
-    this.$store.commit("fm_cg_right", this.$route.name != "Home");
-  },
+  // created() {
+  //   this.$store.commit("fm_cg_right", this.$route.name != "Home");
+  // },
   mounted() {
     if (this.$store.state.live2d === true && this.$route.name != "Home") {
       let assetsName = "haru_2";

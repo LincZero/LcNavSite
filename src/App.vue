@@ -2,7 +2,7 @@
   <div id="app">
     <Header></Header>
     <MidV>
-      <Left v-if="$route.name!=='Home'"></Left>
+      <Left v-if="$route.name==='NavBili'"></Left>
       <MidH style="flex:1;margin:0 20px 0 30px">
         <div style="height:30px;"></div>
         <keep-alive>

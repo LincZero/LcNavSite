@@ -7,7 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     // easy: false, // 简易模式 - 界面 // 用!$route.name==='Home'判断吧
-    left: false, // 左侧栏模式 - 界面
+    left: true, // 左侧栏模式 - 界面
     right: true, // 右侧栏模式 - 界面
     live2d: true, // Live2d - 界面
 

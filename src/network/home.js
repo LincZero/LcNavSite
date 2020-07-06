@@ -21,7 +21,7 @@ export function fn_siteDbPromise() { // 最终返回Promise对象
     .catch(err => {
       console.error('请求资源超时')
       return new Promise((resolve, reject) => {
-        resolve([])
+        resolve([]) // 超时返回空数组，以免报错！注意的是！这里返回空数组必然为超时，直接if为空判断超时即可
       })
     })
 }

@@ -110,7 +110,15 @@ export default {
   mounted() {
     this.siteDb.then(res => {
       // 拿到异步数据库对象
-      this.restaurants = res
+      if (res.length === 0) {
+        // 超时未避免报错这里返回了空数组，这里为catch判断
+        this.$message({
+          message: "网站资源库加载超时",
+          type: "warning"
+        });
+      } else {
+        this.restaurants = res;
+      }
     });
   }
 };
